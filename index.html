@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bridging Memory: Architecture, War, and Reconciliation in Post-Conflict Bosnia and Herzegovina</title>
+    <meta name="description" content="An interactive journey through post-conflict landscapes and architectural memory">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/styles/main.css">
+</head>
+<body class="documentary-body">
+    <!-- Progress Navigation -->
+    <nav id="journey-nav" class="journey-navigation">
+        <div class="nav-container">
+            <div class="journey-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <div class="location-markers">
+                    <div class="marker" data-location="intro">
+                        <span class="marker-dot"></span>
+                        <span class="marker-label">Introduction</span>
+                    </div>
+                    <div class="marker" data-location="budva">
+                        <span class="marker-dot"></span>
+                        <span class="marker-label">Budva</span>
+                    </div>
+                    <div class="marker" data-location="mostar">
+                        <span class="marker-dot"></span>
+                        <span class="marker-label">Mostar</span>
+                    </div>
+                    <div class="marker" data-location="sarajevo">
+                        <span class="marker-dot"></span>
+                        <span class="marker-label">Sarajevo</span>
+                    </div>
+                    <div class="marker" data-location="conclusion">
+                        <span class="marker-dot"></span>
+                        <span class="marker-label">Reflection</span>
+                    </div>
+                </div>
+            </div>
+            <div class="current-location">
+                <span class="location-icon">📍</span>
+                <span class="location-name">Introduction</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Interactive Map Overlay -->
+    <aside id="map-overlay" class="map-overlay">
+        <div class="map-container">
+            <canvas id="journey-map" class="journey-map"></canvas>
+            <div class="map-controls">
+                <button class="map-toggle" id="map-toggle">
+                    <span class="toggle-icon">🗺️</span>
+                    <span class="toggle-text">Journey Map</span>
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Journey Content -->
+    <main class="journey-content">
+        
+        <!-- Introduction: Setting the Stage -->
+        <section id="intro" class="journey-section intro-section" data-location="intro">
+            <div class="section-background">
+                <video id="hero-video" class="background-video" autoplay muted loop playsinline>
+                    <source src="/hero.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <canvas id="intro-canvas" class="background-canvas"></canvas>
+                <div class="background-overlay"></div>
+            </div>
+            
+            <div class="content-container">
+                <div class="section-header">
+                    <h1 class="section-title">UTC2410A Reconstructing Communities: <br> Insights from the Balkans</h1>
+                    <p class="section-subtitle">Architecture, War, and Reconciliation in Post-Conflict Bosnia and Herzegovina</p>
+                    <div class="section-meta">
+                        <span class="meta-item">📅 14 May - 28 May 2025</span>
+                        <span class="meta-item">📖 21 CAPTains</span>
+                        <span class="meta-item">🎓 Senior Seminar</span>
+                    </div>
+                </div>
+
+                <div class="content-scroll">
+                    <div class="immersive-quote">
+                        <blockquote>
+                            "Memory attaches itself to sites, whereas history attaches itself to events."
+                            <cite>— Pierre Nora</cite>
+                        </blockquote>
+                    </div>
+
+                    <div class="narrative-block">
+                        <p class="lead-text">The war in Bosnia and Herzegovina left deep scars in its society, visible through its urban fabric. As Yugoslavia disintegrated, long-standing multi-ethnic communities fractured along nationalist lines.</p>
+                        
+                        <p>What followed was one of Europe's most devastating conflicts since World War II, with over 100,000 people killed, two million displaced and entire towns and cities destroyed. The war tore through everyday life, not only with violence, but by dismantling the delicate social fabric that once held diverse communities together.</p>
+                    </div>
+
+                    <div class="media-insertion-area">
+                        <div class="media-placeholder map-placeholder">
+                            <div class="placeholder-content">
+                                <span class="placeholder-icon">🗺️</span>
+                                <h4>Journey Overview Map</h4>
+                                <p>Interactive map showing the route from Budva through Mostar to Sarajevo</p>
+                                <button class="media-insert-btn">+ Insert Map</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="narrative-block">
+                        <p>Nearly three decades later, Bosnia and Herzegovina remains a post-conflict society, grappling with how to confront and remember its traumatic past. This journey explores how architecture serves as a tool of remembrance, drawing on Pierre Nora's concept of <em>lieux de mémoire</em> - sites where memory crystallizes when living memory disappears.</p>
+                    </div>
+
+                    <div class="journey-preview">
+                        <h3>The Journey Ahead</h3>
+                        <div class="preview-cards">
+                            <div class="preview-card">
+                                <div class="card-icon">🏰</div>
+                                <h4>Budva, Montenegro</h4>
+                                <p>Architecture as witness to regional transformation</p>
+                            </div>
+                            <div class="preview-card">
+                                <div class="card-icon">🌉</div>
+                                <h4>Mostar, Bosnia and Herzegovina</h4>
+                                <p>Destruction, reconstruction, and contested memory</p>
+                            </div>
+                            <div class="preview-card">
+                                <div class="card-icon">🏛️</div>
+                                <h4>Sarajevo, Bosnia and Herzegovina</h4>
+                                <p>Reconciliation and the persistence of everyday memory</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-transition">
+                    <p class="transition-text">Our journey begins at the Adriatic coast...</p>
+                    <div class="scroll-prompt">
+                        <span class="scroll-icon">⬇</span>
+                        <span class="scroll-text">Scroll to continue</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Level 1: Budva - The Peripheral Perspective -->
+        <section id="budva" class="journey-section location-section" data-location="budva">
+            <div class="section-background">
+                <canvas id="budva-canvas" class="background-canvas"></canvas>
+                <div class="background-overlay budva-overlay"></div>
+            </div>
+            
+            <div class="content-container">
+                <div class="location-header">
+                    <div class="location-coordinates">42.2864° N, 18.8400° E</div>
+                    <h2 class="location-title">Budva, Montenegro</h2>
+                    <p class="location-subtitle">The Periphery's Perspective</p>
+                    
+                    <div class="soundscape-control">
+                        <button class="soundscape-btn" data-audio="budva-ambient">
+                            <span class="audio-icon">🔊</span>
+                            <span class="audio-label">Coastal Soundscape</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="content-scroll">
+                    <div class="chapter-intro">
+                        <div class="chapter-number">01</div>
+                        <h3>Architecture as Witness</h3>
+                        <p class="chapter-description">Even places that escaped direct violence bear witness to larger historical traumas</p>
+                    </div>
+
+                    <div class="narrative-block">
+                        <p class="lead-text">Budva offered an unexpected entry point into post-conflict reconstruction. Unlike Sarajevo or Mostar, this ancient coastal town had largely escaped the direct violence of the 1990s wars.</p>
+                        
+                        <p>Yet walking through its medieval old town and along its modern waterfront revealed how even peripheral locations become witnesses to larger historical traumas.</p>
+                    </div>
+
+                    <div class="media-insertion-area">
+                        <div class="media-placeholder photo-placeholder">
+                            <div class="placeholder-content">
+                                <span class="placeholder-icon">📷</span>
+                                <h4>Budva Old Town</h4>
+                                <p>Medieval walls and Venetian architecture preserved through conflict</p>
+                                <button class="media-insert-btn">+ Insert Photo</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="immersive-quote floating-quote">
+                        <blockquote>
+                            "The old town of Budva, enclosed within Venetian-era walls, presented itself as a preserved fragment of pre-war Yugoslavia - a glimpse of what might have been preserved elsewhere."
+                        </blockquote>
+                    </div>
+
+                    <div class="narrative-block">
+                        <p>The narrow stone streets, Orthodox churches alongside Catholic ones, and the easy mingling of different architectural traditions offered a vision of the multicultural coexistence that had characterized much of Yugoslavia.</p>
+                        
+                        <p>But even in this relatively peaceful setting, subtle traces of political transformation emerged. Yugoslav-era hotels now bearing international chain names, communist-era apartment blocks slowly being renovated or replaced - all representing both material legacy and ongoing post-socialist transformation.</p>
+                    </div>
+
+                    <div class="observation-panel">
+                        <div class="panel-header">
+                            <span class="panel-icon">👁️</span>
+                            <h4>Field Observation</h4>
+                        </div>
+                        <div class="panel-content">
+                            <p><strong>Tourism as Reconciliation:</strong> Budva's economy now depends heavily on visitors from across the former Yugoslavia. Serbian families from Belgrade share beaches with Croatian tourists from Zagreb, creating a form of reconciliation through economic interaction that formal peace processes had struggled to achieve.</p>
+                        </div>
+                    </div>
+
+                    <div class="media-insertion-area dual-media">
+                        <div class="media-placeholder audio-placeholder">
+                            <div class="placeholder-content">
+                                <span class="placeholder-icon">🎵</span>
+                                <h4>Evening Conversations</h4>
+                                <p>Multilingual discussions in the old town square</p>
+                                <button class="media-insert-btn">+ Insert Audio</button>
+                            </div>
+                        </div>
+                        <div class="media-placeholder reflection-placeholder">
+                            <div class="placeholder-content">
+                                <span class="placeholder-icon">✍️</span>
+                                <h4>Personal Reflection</h4>
+                                <p>Observations on everyday reconciliation</p>
+                                <button class="media-insert-btn">+ Insert Notes</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="narrative-block">
+                        <p>Here, in the gentle evening light reflecting off the Adriatic, I witnessed reconciliation not through grand gestures but through the simple act of former enemies building sandcastles on the same beach, sharing café tables, and browsing the same souvenir shops.</p>
+                    </div>
+                </div>
+
+                <div class="section-transition">
+                    <p class="transition-text">Leaving the coast behind, we journey inland to a city divided...</p>
+                    <div class="location-distance">127 km southeast ↗</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Level 2: Mostar - Destruction and Reconstruction -->
+        <section id="mostar" class="journey-section location-section" data-location="mostar">
+            <div class="section-background">
+                <canvas id="mostar-canvas" class="background-canvas"></canvas>
+                <div class="background-overlay mostar-overlay"></div>
+            </div>
+            
+            <div class="content-container">
+                <div class="location-header">
+                    <div class="location-coordinates">43.3438° N, 17.8078° E</div>
+                    <h2 class="location-title">Mostar, Bosnia and Herzegovina</h2>
+                    <p class="location-subtitle">Erasure and Preservation of Memory</p>
+                    
+                    <div class="soundscape-control">
+                        <button class="soundscape-btn" data-audio="mostar-ambient">
+                            <span class="audio-icon">🔊</span>
+                            <span class="audio-label">River & Stone</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="content-scroll">
+                    <div class="chapter-intro">
+                        <div class="chapter-number">02</div>
+                        <h3>The Contested Landscape</h3>
+                        <p class="chapter-description">Where architectural wounds remain open and reconstruction tells political stories</p>
+                    </div>
+
+                    <div class="immersive-quote section-opener">
+                        <blockquote>
+                            "In Mostar, architectural witnessing takes a different yet equally complex form. Buildings that remain scarred sit beside those carefully reconstructed, creating a dichotomy felt through the entire urban fabric."
+                        </blockquote>
+                    </div>
+
+                    <div class="narrative-block">
+                        <p class="lead-text">While the Stari Most (Old Bridge) has been faithfully reconstructed after its destruction in 1993, many residential and religious buildings on both sides of the Neretva River still show the scars of war.</p>
+                        
+                        <p>This dichotomy creates a tension between preservation and forgetting, where specific investments and memory politics reflect the priorities of their respective communities.</p>
+                    </div>
+
+                    <div class="case-study-section">
+                        <div class="case-study-header">
+                            <span class="study-icon">🏪</span>
+                            <h4>Case Study: The Razvitak Department Store</h4>
+                        </div>
+                        
+                        <div class="media-insertion-area">
+                            <div class="media-placeholder photo-placeholder large">
+                                <div class="placeholder-content">
+                                    <span class="placeholder-icon">📷</span>
+                                    <h4>Razvitak Ruins</h4>
+                                    <p>Abandoned department store with bullet holes and decay</p>
+                                    <button class="media-insert-btn">+ Insert Photo</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="narrative-block">
+                            <p>One of the most striking examples of silent architectural testimony is the Razvitak department store. Once a symbol of modern urban life in Yugoslavia, it now sits abandoned in the heart of the city, its facade laden with bullet holes and its structure visibly decaying.</p>
+                            
+                            <p>The building's neglect is not merely due to economics - it is a spatial embodiment of contested memory. Located near the invisible dividing line between the Croat majority west and Bosniak majority east, rebuilding Razvitak would require cooperation and shared vision between communities where even schools and public monuments are highly contested.</p>
+                        </div>
+                    </div>
+
+                    <div class="media-insertion-area">
+                        <div class="media-placeholder reflection-placeholder">
+                            <div class="placeholder-content">
+                                <span class="placeholder-icon">💭</span>
+                                <h4>Standing Before Razvitak</h4>
+                                <p>Personal reflections on witnessing architectural abandonment</p>
+                                <button class="media-insert-btn">+ Insert Reflection</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="observation-panel critical">
+                        <div class="panel-header">
+                            <span class="panel-icon">⚠️</span>
+                            <h4>Critical Insight</h4>
+                        </div>
+                        <div class="panel-content">
+                            <p>The building remains frozen in time, a hollow witness to what Mostar once was and what it still struggles to become. Its silence is louder than any memorial plaque - a visible void where shared urban life used to exist.</p>
+                        </div>
+                    </div>
+
+                    <div class="section-divider">
+                        <h4>The Bulevar Frontline</h4>
+                    </div>
+
+                    <div class="narrative-block">
+                        <p>Strolling along Bulevar, the buildings looked freshly painted and the streets breathed liveliness. But at the street's end stood a residential building with one wall densely pockmarked with bullet holes - a deliberate preservation amid otherwise repaired structures.</p>
+                        
+                        <p>This wall serves as the former frontline between Bosniak and Croat forces, its bullet holes reflecting direct physical evidence of confrontation. Whether preserved by intention or circumstance, it functions as a <em>lieu de mémoire</em> - a living artifact embedded in everyday dwelling.</p>
+                    </div>
+
+                    <div class="media-insertion-area dual-media">
+                        <div class="media-placeholder photo-placeholder">
+                            <div class="placeholder-content">
+                                <span class="placeholder-icon">📷</span>
+                                <h4>Bulevar Bullet Holes</h4>
+                                <p>Preserved war damage on residential building</p>
+                                <button class="media-insert-btn">+ Insert Photo</button>
+                            </div>
+                        </div>
+                        <div class="media-placeholder audio-placeholder">
+                            <div class="placeholder-content">
+                                <span class="placeholder-icon">🎵</span>
+                                <h4>Resident Interview</h4>
+                                <p>Local perspectives on preserved scars</p>
+                                <button class="media-insert-btn">+ Insert Audio</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bridge-section">
+                        <h4>Stari Most: Symbol and Reality</h4>
+                        
+                        <div class="immersive-quote">
+                            <blockquote>
+                                "Destroyed by Croat forces in 1993, the bridge's collapse was devastating - both physically severing the city and symbolically shattering its shared identity."
+                            </blockquote>
+                        </div>
+
+                        <div class="narrative-block">
+                            <p>The UNESCO-supported reconstruction, completed in 2004, involved collaboration between Bosniak and Croat communities, international restoration specialists, and careful attention to avoiding ethnic bias. Using original Ottoman materials and techniques, it was rebuilt not as a monument to one side's suffering, but as shared cultural common ground.</p>
+                            
+                            <p>Yet as architecture professor Maja Popovac acknowledges, while the restored bridge embodies aspirations of reconciliation, it cannot by itself heal the city's deeper wounds. It represents possibility rather than completion - a first step in the long process of rebuilding something together.</p>
+                        </div>
+
+                        <div class="media-insertion-area">
+                            <div class="media-placeholder photo-placeholder large">
+                                <div class="placeholder-content">
+                                    <span class="placeholder-icon">📷</span>
+                                    <h4>Stari Most Today</h4>
+                                    <p>The reconstructed bridge connecting divided communities</p>
+                                    <button class="media-insert-btn">+ Insert Photo</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-transition">
+                    <p class="transition-text">From a city divided by a river to a capital scarred by siege...</p>
+                    <div class="location-distance">129 km northeast ↗</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Level 3: Sarajevo - Reconciliation and Everyday Memory -->
+        <section id="sarajevo" class="journey-section location-section" data-location="sarajevo">
+            <div class="section-background">
+                <canvas id="sarajevo-canvas" class="background-canvas"></canvas>
+                <div class="background-overlay sarajevo-overlay"></div>
+            </div>
+            
+            <div class="content-container">
+                <div class="location-header">
+                    <div class="location-coordinates">43.8563° N, 18.4131° E</div>
+                    <h2 class="location-title">Sarajevo, Bosnia and Herzegovina</h2>
+                    <p class="location-subtitle">Architecture for Reconciliation</p>
+                    
+                    <div class="soundscape-control">
+                        <button class="soundscape-btn" data-audio="sarajevo-ambient">
+                            <span class="audio-icon">🔊</span>
+                            <span class="audio-label">Urban Life</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="content-scroll">
+                    <div class="chapter-intro">
+                        <div class="chapter-number">03</div>
+                        <h3>Subtle Scars, Quiet Healing</h3>
+                        <p class="chapter-description">How a city under siege for 1,425 days rebuilds trust through everyday architecture</p>
+                    </div>
+
+                    <div class="narrative-block">
+                        <p class="lead-text">In Sarajevo, architectural witnessing reveals itself not through dramatic ruins, but through subtly repaired scars. The longest siege in modern European history left marks that speak quietly through mismatched materials and visible repairs.</p>
+                        
+                        <p>Buildings across the city, especially in neighborhoods like Grbavica and along former frontlines, show signs of quick post-war repairs. Walls once perforated by bullets have been patched up, windows replaced, facades re-rendered.</p>
+                    </div>
+
+                    <div class="observation-panel">
+                        <div class="panel-header">
+                            <span class="panel-icon">🔍</span>
+                            <h4>Architectural Detective Work</h4>
+                        </div>
+                        <div class="panel-content">
+                            <p>Yet the outlines of original damage remain faintly visible beneath fresh plaster or paint. Close examination reveals inconsistencies in texture, mismatched materials, and outlines of patchwork over old bullet holes. These traces betray what repaired surfaces try to forget.</p>
+                        </div>
+                    </div>
+
+                    <div class="media-insertion-area">
+                        <div class="media-placeholder photo-placeholder">
+                            <div class="placeholder-content">
+                                <span class="placeholder-icon">📷</span>
+                                <h4>Patched Facades</h4>
+                                <p>Subtle repair work visible in Grbavica neighborhood</p>
+                                <button class="media-insert-btn">+ Insert Photo</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="immersive-quote">
+                        <blockquote>
+                            "Even buildings that have been 'healed' still function as witnesses, holding the residue of trauma on their walls. Memory persists not through declared memorials, but through material traces that endure beneath paint, plaster and time."
+                        </blockquote>
+                    </div>
+
+                    <div class="narrative-block">
+                        <p>Along the streets of Sarajevo, the desire to move on meets architecture's quiet refusal to forget. This tension between erasure and endurance, between rebuilding and the impossibility of complete repair, creates a unique form of memory preservation.</p>
+                    </div>
+
+                    <div class="reconciliation-section">
+                        <h4>Everyday Reconciliation</h4>
+                        
+                        <div class="narrative-block">
+                            <p>But Sarajevo also demonstrates how architecture can actively foster reconciliation. New community centers, restored cultural institutions, and shared public spaces create opportunities for former enemies to interact in neutral settings.</p>
+                            
+                            <p>The restoration of the National Library, the reconstruction of religious buildings, and the careful preservation of Ottoman, Austro-Hungarian, and Yugoslav architectural layers tell a story of a city learning to honor its complex heritage.</p>
+                        </div>
+
+                        <div class="media-insertion-area triple-media">
+                            <div class="media-placeholder photo-placeholder">
+                                <div class="placeholder-content">
+                                    <span class="placeholder-icon">📷</span>
+                                    <h4>National Library</h4>
+                                    <p>Symbol of cultural resilience rebuilt</p>
+                                    <button class="media-insert-btn">+ Insert Photo</button>
+                                </div>
+                            </div>
+                            <div class="media-placeholder audio-placeholder">
+                                <div class="placeholder-content">
+                                    <span class="placeholder-icon">🎵</span>
+                                    <h4>Library Reopening</h4>
+                                    <p>Voices of hope and renewal</p>
+                                    <button class="media-insert-btn">+ Insert Audio</button>
+                                </div>
+                            </div>
+                            <div class="media-placeholder reflection-placeholder">
+                                <div class="placeholder-content">
+                                    <span class="placeholder-icon">✍️</span>
+                                    <h4>Final Thoughts</h4>
+                                    <p>Reflections on resilience and recovery</p>
+                                    <button class="media-insert-btn">+ Insert Notes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="observation-panel hopeful">
+                        <div class="panel-header">
+                            <span class="panel-icon">🌱</span>
+                            <h4>Seeds of Reconciliation</h4>
+                        </div>
+                        <div class="panel-content">
+                            <p>In Sarajevo's cafés, markets, and trams, people from different ethnic backgrounds interact daily. Architecture provides the stage for these encounters - creating spaces where shared humanity can gradually overcome historical divisions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-transition">
+                    <p class="transition-text">As our journey concludes, we reflect on what architecture teaches us about memory, healing, and hope...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion: Living with Scars -->
+        <section id="conclusion" class="journey-section conclusion-section" data-location="conclusion">
+            <div class="section-background">
+                <canvas id="conclusion-canvas" class="background-canvas"></canvas>
+                <div class="background-overlay conclusion-overlay"></div>
+            </div>
+            
+            <div class="content-container">
+                <div class="conclusion-header">
+                    <h2 class="conclusion-title">Living with Scars</h2>
+                    <p class="conclusion-subtitle">Architecture as Memory, Witness, and Hope</p>
+                </div>
+
+                <div class="content-scroll">
+                    <div class="chapter-intro">
+                        <div class="chapter-number">∞</div>
+                        <h3>The Continuing Story</h3>
+                        <p class="chapter-description">What buildings teach us about remembering, forgetting, and rebuilding</p>
+                    </div>
+
+                    <div class="narrative-block">
+                        <p class="lead-text">This journey through Budva, Mostar, and Sarajevo reveals how architecture serves not just as shelter, but as witness, memory keeper, and agent of reconciliation in post-conflict societies.</p>
+                    </div>
+
+                    <div class="key-insights">
+                        <h4>Key Insights</h4>
+                        <div class="insight-grid">
+                            <div class="insight-card">
+                                <div class="insight-icon">👁️</div>
+                                <h5>Architecture as Witness</h5>
+                                <p>Buildings preserve evidence of trauma when official narratives remain contested</p>
+                            </div>
+                            <div class="insight-card">
+                                <div class="insight-icon">❌</div>
+                                <h5>Strategic Erasure</h5>
+                                <p>Selective rebuilding can obscure difficult histories or reinforce divisions</p>
+                            </div>
+                            <div class="insight-card">
+                                <div class="insight-icon">🤝</div>
+                                <h5>Reconciliation Through Space</h5>
+                                <p>Thoughtful reconstruction creates opportunities for former enemies to rebuild trust</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="immersive-quote final-quote">
+                        <blockquote>
+                            "As Pierre Nora suggests, memory lives on not just in what we choose to remember, but in what is allowed to remain. In Bosnia and Herzegovina, memory is quite literally set in stone."
+                        </blockquote>
+                    </div>
+
+                    <div class="media-insertion-area">
+                        <div class="media-placeholder reflection-placeholder large">
+                            <div class="placeholder-content">
+                                <span class="placeholder-icon">📝</span>
+                                <h4>Final Reflections</h4>
+                                <p>Personal conclusions on architecture, memory, and reconciliation</p>
+                                <button class="media-insert-btn">+ Insert Final Thoughts</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="narrative-block">
+                        <p>The buildings of the former Yugoslavia continue to shape how the past is remembered and how the future might be envisioned. In their bullet holes and careful reconstructions, their abandonment and renewal, they offer lessons for any society learning to live with the scars of conflict.</p>
+                        
+                        <p>The journey continues - in every repaired wall, every preserved ruin, every shared public space where former enemies learn to coexist. Architecture, it turns out, is one of our most powerful tools for both remembering and healing.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer with Sources and Credits -->
+    <footer class="journey-footer">
+        <div class="footer-content">
+            <div class="acknowledgments">
+                <h3>Acknowledgments</h3>
+                <p>This research was made possible through fieldwork in Bosnia and Herzegovina and Montenegro, guided by Pierre Nora's framework of <em>lieux de mémoire</em> and the insights of scholars like Maja Popovac.</p>
+            </div>
+            <div class="sources">
+                <h3>Key Sources</h3>
+                <ul>
+                    <li>Pierre Nora - "Lieux de Mémoire" (1989)</li>
+                    <li>Maja Popovac - Analysis of Stari Most reconstruction</li>
+                    <li>Spomenik Database - Documentation of Yugoslav monuments</li>
+                    <li>Field research and interviews - 2024</li>
+                </ul>
+            </div>
+            <div class="technical">
+                <h3>Interactive Experience</h3>
+                <p>Built with Three.js, Web Audio API, and progressive enhancement for an immersive documentary experience.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 • Built with intention for understanding, remembrance, and reconciliation</p>
+        </div>
+    </footer>
+
+    <script type="module" src="./src/main.ts"></script>
+</body>
+</html> 
