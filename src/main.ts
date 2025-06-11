@@ -41,7 +41,7 @@ interface JourneyState {
 }
 
 const journeyState: JourneyState = {
-  currentLocation: 'intro',
+  currentLocation: "hero",
   progress: 0,
   audioPlaying: false,
   canvasScenes: new Map()
@@ -170,21 +170,17 @@ class SceneManager {
 
   private createSceneContent(sceneId: string, scene: THREE.Scene, camera: THREE.PerspectiveCamera): void {
     switch (sceneId) {
-      case 'budva-canvas':
+      case "budva-canvas":
         this.createBudvaScene(scene, camera);
         break;
-      case 'mostar-canvas':
-        this.createMostarScene(scene, camera);
-        break;
-      case 'sarajevo-canvas':
+      case "sarajevo-canvas":
         this.createSarajevoScene(scene, camera);
         break;
-      case 'conclusion-canvas':
+      case "conclusion-canvas":
         this.createConclusionScene(scene, camera);
         break;
     }
   }
-
 
 
   private createBudvaScene(scene: THREE.Scene, camera: THREE.PerspectiveCamera): void {
@@ -224,56 +220,6 @@ class SceneManager {
     scene.add(waves);
 
     camera.position.set(0, 2, 8);
-    camera.lookAt(0, 0, 0);
-  }
-
-  private createMostarScene(scene: THREE.Scene, camera: THREE.PerspectiveCamera): void {
-    // Bridge and destroyed building representation
-    const bridgeGeometry = new THREE.CylinderGeometry(0.1, 0.1, 6, 8);
-    const bridgeMaterial = new THREE.MeshBasicMaterial({ color: 0xA23B72 });
-    
-    const bridge = new THREE.Mesh(bridgeGeometry, bridgeMaterial);
-    bridge.rotation.z = Math.PI / 2;
-    bridge.position.y = 1;
-    scene.add(bridge);
-
-    // Broken/damaged building elements
-    const debrisGeometry = new THREE.BoxGeometry(0.3, 0.3, 0.3);
-    const debrisMaterial = new THREE.MeshBasicMaterial({ 
-      color: 0x666666,
-      transparent: true,
-      opacity: 0.7
-    });
-
-    for (let i = 0; i < 15; i++) {
-      const debris = new THREE.Mesh(debrisGeometry, debrisMaterial.clone());
-      debris.position.set(
-        (Math.random() - 0.5) * 8,
-        Math.random() * 3,
-        (Math.random() - 0.5) * 8
-      );
-      debris.rotation.set(
-        Math.random() * Math.PI,
-        Math.random() * Math.PI,
-        Math.random() * Math.PI
-      );
-      scene.add(debris);
-    }
-
-    // River representation
-    const riverGeometry = new THREE.PlaneGeometry(8, 20);
-    const riverMaterial = new THREE.MeshBasicMaterial({ 
-      color: 0x4A90E2,
-      transparent: true,
-      opacity: 0.3
-    });
-    
-    const river = new THREE.Mesh(riverGeometry, riverMaterial);
-    river.rotation.x = -Math.PI / 2;
-    river.position.y = -1;
-    scene.add(river);
-
-    camera.position.set(0, 3, 10);
     camera.lookAt(0, 0, 0);
   }
 
@@ -355,27 +301,28 @@ class SceneManager {
         scene.children.forEach((child, index) => {
           if (child instanceof THREE.Mesh) {
             switch (sceneId) {
-              case 'intro-canvas':
+              case "hero-canvas":
+                // Floating particle animation
+                if (child.userData && typeof child.userData.originalY === "number" && typeof child.userData.floatSpeed === "number") {
+                  child.position.y = child.userData.originalY + Math.sin(Date.now() * child.userData.floatSpeed) * 0.5;
+                  child.rotation.y += 0.005;
+                }
+                break;
+              case "intro-canvas":
                 child.rotation.x += 0.001;
                 child.rotation.y += 0.002;
                 break;
-              case 'budva-canvas':
-                if (child.material && 'wireframe' in child.material) {
+              case "budva-canvas":
+                if (child.material && "wireframe" in child.material) {
                   // Animate waves
                   child.position.y = Math.sin(Date.now() * 0.001 + index) * 0.1 - 2;
                 }
                 break;
-              case 'mostar-canvas':
-                if (child.geometry instanceof THREE.BoxGeometry) {
-                  // Subtle debris movement
-                  child.rotation.y += 0.0005;
-                }
-                break;
-              case 'sarajevo-canvas':
+              case "sarajevo-canvas":
                 // Breathing city effect
                 child.scale.y = 1 + Math.sin(Date.now() * 0.001 + index * 0.5) * 0.05;
                 break;
-              case 'conclusion-canvas':
+              case "conclusion-canvas":
                 // Orbital movement
                 const time = Date.now() * 0.001;
                 child.rotation.y += 0.01;
@@ -449,19 +396,19 @@ class NavigationManager {
         }
       });
 
-      // Show navigation after first section
+      // Show navigation after hero section
       if (index === 1) {
         ScrollTrigger.create({
           trigger: section,
-          start: 'top bottom',
+          start: "top bottom",
           onEnter: () => {
             if (this.journeyNav) {
-              this.journeyNav.classList.add('visible');
+              this.journeyNav.classList.add("visible");
             }
           },
           onLeaveBack: () => {
             if (this.journeyNav) {
-              this.journeyNav.classList.remove('visible');
+              this.journeyNav.classList.remove("visible");
             }
           }
         });
@@ -496,11 +443,13 @@ class NavigationManager {
     // Update current location display
     if (this.currentLocationElement) {
       const locationDisplayNames: Record<string, string> = {
-        'intro': 'Introduction',
-        'budva': 'Budva, Montenegro',
-        'mostar': 'Mostar, Bosnia and Herzegovina',
-        'sarajevo': 'Sarajevo, Bosnia and Herzegovina',
-        'conclusion': 'Conclusion'
+        "hero": "Journey Begins",
+        "intro": "Introduction",
+        "witness": "Theory",
+        "mostar": "Mostar, Bosnia and Herzegovina",
+        "budva": "Budva, Montenegro",
+        "sarajevo": "Sarajevo, Bosnia and Herzegovina",
+        "conclusion": "Conclusion"
       };
       
       this.currentLocationElement.textContent = locationDisplayNames[locationName] || locationName;
@@ -584,8 +533,40 @@ class AnimationManager {
   }
 
   private setupContentAnimations(): void {
+    // Animate introduction section content on scroll from hero
+    const introQuote = document.querySelector(".intro-section .immersive-quote");
+    const introContent = document.querySelector(".introduction-content");
+    
+    if (introQuote) {
+      ScrollTrigger.create({
+        trigger: introQuote,
+        start: "top 80%",
+        end: "bottom 20%",
+        onEnter: () => {
+          introQuote.classList.add("animate");
+        },
+        onLeaveBack: () => {
+          introQuote.classList.remove("animate");
+        }
+      });
+    }
+    
+    if (introContent) {
+      ScrollTrigger.create({
+        trigger: introContent,
+        start: "top 75%",
+        end: "bottom 20%",
+        onEnter: () => {
+          introContent.classList.add("animate");
+        },
+        onLeaveBack: () => {
+          introContent.classList.remove("animate");
+        }
+      });
+    }
+
     // Animate narrative blocks on scroll
-    const narrativeBlocks = document.querySelectorAll('.narrative-block');
+    const narrativeBlocks = document.querySelectorAll(".narrative-block");
     
     narrativeBlocks.forEach((block, index) => {
       gsap.fromTo(block, {
@@ -598,15 +579,15 @@ class AnimationManager {
         delay: index * 0.1,
         scrollTrigger: {
           trigger: block,
-          start: 'top 80%',
-          end: 'bottom 20%',
-          toggleActions: 'play none none reverse'
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse"
         }
       });
     });
 
     // Animate media placeholders
-    const mediaPlaceholders = document.querySelectorAll('.media-placeholder');
+    const mediaPlaceholders = document.querySelectorAll(".media-placeholder");
     
     mediaPlaceholders.forEach((placeholder) => {
       gsap.fromTo(placeholder, {
@@ -618,14 +599,14 @@ class AnimationManager {
         duration: 0.6,
         scrollTrigger: {
           trigger: placeholder,
-          start: 'top 85%',
-          toggleActions: 'play none none reverse'
+          start: "top 85%",
+          toggleActions: "play none none reverse"
         }
       });
     });
 
     // Animate observation panels
-    const observationPanels = document.querySelectorAll('.observation-panel');
+    const observationPanels = document.querySelectorAll(".observation-panel");
     
     observationPanels.forEach((panel) => {
       gsap.fromTo(panel, {
@@ -637,8 +618,8 @@ class AnimationManager {
         duration: 0.7,
         scrollTrigger: {
           trigger: panel,
-          start: 'top 80%',
-          toggleActions: 'play none none reverse'
+          start: "top 80%",
+          toggleActions: "play none none reverse"
         }
       });
     });
@@ -677,13 +658,12 @@ class MediaManager {
   }
 
   private bindMediaControls(): void {
-    const mediaInsertButtons = document.querySelectorAll('.media-insert-btn');
-    
-    mediaInsertButtons.forEach(button => {
+    const mediaButtons = document.querySelectorAll('.media-insert-btn');
+    mediaButtons.forEach(button => {
       button.addEventListener('click', (e) => {
-        const placeholder = (e.target as HTMLElement).closest('.media-placeholder');
+        e.preventDefault();
+        const placeholder = button.closest('.media-placeholder');
         if (placeholder) {
-          // Simulate media upload interface
           this.showMediaUploadInterface(placeholder);
         }
       });
@@ -691,58 +671,229 @@ class MediaManager {
   }
 
   private showMediaUploadInterface(placeholder: Element): void {
-    // Create upload interface overlay
+    // Create overlay
     const overlay = document.createElement('div');
     overlay.className = 'media-upload-overlay';
-    overlay.innerHTML = `
-      <div class="upload-modal">
-        <h3>Add Media</h3>
-        <p>This is where you would upload and configure your media content.</p>
-        <div class="upload-options">
-          <button class="upload-btn photo">📷 Upload Photo</button>
-          <button class="upload-btn audio">🎵 Upload Audio</button>
-          <button class="upload-btn text">✍️ Add Text</button>
-        </div>
-        <button class="close-upload">Close</button>
-      </div>
+    overlay.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
     `;
-    
-    // Style the overlay
-    Object.assign(overlay.style, {
-      position: 'fixed',
-      top: '0',
-      left: '0',
-      width: '100vw',
-      height: '100vh',
-      backgroundColor: 'rgba(0, 0, 0, 0.8)',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      zIndex: '2000'
-    });
-    
-    const modal = overlay.querySelector('.upload-modal') as HTMLElement;
-    Object.assign(modal.style, {
-      backgroundColor: 'white',
-      padding: '40px',
-      borderRadius: '16px',
-      textAlign: 'center',
-      maxWidth: '500px',
-      width: '90%'
-    });
-    
+
+    // Create upload interface
+    const uploadInterface = document.createElement('div');
+    uploadInterface.className = 'upload-interface';
+    uploadInterface.style.cssText = `
+      background: white;
+      padding: 32px;
+      border-radius: 16px;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      font-family: var(--font-interface);
+    `;
+
+    const title = placeholder.querySelector('h4')?.textContent || 'Media Upload';
+    uploadInterface.innerHTML = `
+      <h3 style="margin-bottom: 16px; color: #2c3e50;">${title}</h3>
+      <p style="margin-bottom: 24px; color: #7f8c8d;">Choose how you'd like to add this media:</p>
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <button class="upload-option" data-type="file" style="padding: 12px 24px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer;">
+          📁 Upload File
+        </button>
+        <button class="upload-option" data-type="url" style="padding: 12px 24px; background: #e74c3c; color: white; border: none; border-radius: 8px; cursor: pointer;">
+          🔗 Add URL
+        </button>
+        <button class="upload-option" data-type="placeholder" style="padding: 12px 24px; background: #95a5a6; color: white; border: none; border-radius: 8px; cursor: pointer;">
+          📝 Keep Placeholder
+        </button>
+      </div>
+      <button class="close-upload" style="margin-top: 24px; padding: 8px 16px; background: transparent; border: 1px solid #bdc3c7; border-radius: 4px; cursor: pointer;">
+        Cancel
+      </button>
+    `;
+
+    overlay.appendChild(uploadInterface);
     document.body.appendChild(overlay);
-    
-    // Bind close functionality
+
+    // Bind events
     overlay.querySelector('.close-upload')?.addEventListener('click', () => {
-      overlay.remove();
+      document.body.removeChild(overlay);
     });
-    
+
     overlay.addEventListener('click', (e) => {
       if (e.target === overlay) {
-        overlay.remove();
+        document.body.removeChild(overlay);
       }
     });
+  }
+}
+
+/**
+ * Manages the vintage postcard interactions
+ */
+class PostcardManager {
+  private activePostcard: HTMLElement | null = null;
+
+  constructor() {
+    this.bindPostcardClicks();
+  }
+
+  private bindPostcardClicks(): void {
+    const postcards = document.querySelectorAll('.postcard');
+    
+    postcards.forEach(postcard => {
+      postcard.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        this.togglePostcard(postcard as HTMLElement);
+      });
+    });
+
+    // Close active postcard when clicking outside the postcards fan area
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      const postcardsContainer = document.querySelector('.postcards-fan');
+      
+      if (this.activePostcard && postcardsContainer && !postcardsContainer.contains(target)) {
+        this.closeActivePostcard();
+      }
+    });
+
+    // Handle escape key to close active postcard
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && this.activePostcard) {
+        this.closeActivePostcard();
+      }
+    });
+  }
+
+  private togglePostcard(postcard: HTMLElement): void {
+    // If clicking the already active postcard, close it
+    if (this.activePostcard === postcard) {
+      this.closeActivePostcard();
+      return;
+    }
+
+    // Close any currently active postcard
+    if (this.activePostcard) {
+      this.closeActivePostcard();
+    }
+
+    // Activate the clicked postcard
+    this.activatePostcard(postcard);
+  }
+
+  private activatePostcard(postcard: HTMLElement): void {
+    // Remove active class from all postcards first
+    const allPostcards = document.querySelectorAll('.postcard');
+    allPostcards.forEach(card => card.classList.remove('active'));
+    
+    // Add active class to clicked postcard
+    postcard.classList.add('active');
+    this.activePostcard = postcard;
+
+    // Animate the postcard to center with GSAP
+    gsap.to(postcard, {
+      transform: "rotate(0deg) translateY(-40px) translateX(0px) scale(1.15)",
+      duration: 0.8,
+      ease: "power3.out",
+      onComplete: () => {
+        // Show description after centering animation completes
+        const description = postcard.querySelector('.postcard-description');
+        if (description) {
+          gsap.to(description, {
+            opacity: 1,
+            y: 0,
+            duration: 0.4,
+            ease: "power2.out"
+          });
+        }
+      }
+    });
+
+    // Fade out other postcards slightly
+    allPostcards.forEach(card => {
+      if (card !== postcard) {
+        gsap.to(card, {
+          opacity: 0.7,
+          duration: 0.6,
+          ease: "power2.out"
+        });
+      }
+    });
+  }
+
+  private closeActivePostcard(): void {
+    if (!this.activePostcard) return;
+
+    const activeCard = this.activePostcard;
+    
+    // Hide description first
+    const description = activeCard.querySelector('.postcard-description');
+    if (description) {
+      gsap.to(description, {
+        opacity: 0,
+        y: 10,
+        duration: 0.3,
+        ease: "power2.in"
+      });
+    }
+
+    // Animate back to original position
+    // Get the original transform for this specific postcard
+    const originalTransform = this.getOriginalTransform(activeCard);
+    
+    gsap.to(activeCard, {
+      transform: originalTransform,
+      duration: 0.6,
+      ease: "power2.inOut",
+      onComplete: () => {
+        activeCard.classList.remove('active');
+      }
+    });
+
+    // Restore opacity for all postcards
+    const allPostcards = document.querySelectorAll('.postcard');
+    allPostcards.forEach(card => {
+      gsap.to(card, {
+        opacity: 1,
+        duration: 0.6,
+        ease: "power2.out"
+      });
+    });
+
+    this.activePostcard = null;
+  }
+
+  private getOriginalTransform(postcard: HTMLElement): string {
+    // Determine the original transform based on the postcard's class
+    if (postcard.classList.contains('postcard-1')) {
+      return "rotate(-45deg) translateY(-25px) translateX(-150px)";
+    } else if (postcard.classList.contains('postcard-2')) {
+      return "rotate(-22deg) translateY(-15px) translateX(-75px)";
+    } else if (postcard.classList.contains('postcard-3')) {
+      return "rotate(0deg)";
+    } else if (postcard.classList.contains('postcard-4')) {
+      return "rotate(22deg) translateY(-15px) translateX(75px)";
+    } else if (postcard.classList.contains('postcard-5')) {
+      return "rotate(45deg) translateY(-25px) translateX(150px)";
+    }
+    return "rotate(0deg)"; // fallback
+  }
+
+  public closeAll(): void {
+    if (this.activePostcard) {
+      this.closeActivePostcard();
+    }
   }
 }
 
@@ -754,6 +905,7 @@ class JourneyApp {
   private audioControlManager: AudioControlManager;
   private animationManager: AnimationManager;
   private mediaManager: MediaManager;
+  private postcardManager: PostcardManager;
 
   constructor() {
     this.audioManager = new AudioManager();
@@ -762,27 +914,45 @@ class JourneyApp {
     this.audioControlManager = new AudioControlManager(this.audioManager);
     this.animationManager = new AnimationManager();
     this.mediaManager = new MediaManager();
+    this.postcardManager = new PostcardManager();
     
     this.initializeApp();
   }
 
   private initializeApp(): void {
+    // Initialize smooth scrolling
+    this.initializeSmoothScrolling();
+    
     // Set up global event listeners
     this.setupKeyboardNavigation();
     this.setupMapToggle();
     this.initializeHeroVideo();
     
     // Handle visibility changes to pause audio when tab is not active
-    document.addEventListener('visibilitychange', () => {
+    document.addEventListener("visibilitychange", () => {
       if (document.hidden) {
         this.audioManager.stopAll();
       }
     });
 
     // Add smooth scrolling behavior
-    document.documentElement.style.scrollBehavior = 'smooth';
+    document.documentElement.style.scrollBehavior = "smooth";
     
-    console.log('Interactive documentary journey initialized');
+    console.log("Interactive documentary journey initialized");
+  }
+
+  private initializeSmoothScrolling(): void {
+    // Initialize Lenis for smooth scrolling
+    const lenis = new Lenis();
+
+    // Connect Lenis with GSAP ScrollTrigger
+    lenis.on("scroll", ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+
+    gsap.ticker.lagSmoothing(0);
   }
 
   private setupKeyboardNavigation(): void {
@@ -898,4 +1068,27 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Export for potential external use
-export { JourneyApp, journeyState }; 
+export { JourneyApp, journeyState };
+
+// Global function for expandable content
+(window as any).toggleExpand = function(button: HTMLButtonElement): void {
+  const expandedText = button.nextElementSibling as HTMLElement;
+  const expandIcon = button.querySelector('.expand-icon') as HTMLElement;
+  const expandTextElement = button.querySelector('.expand-text') as HTMLElement;
+  
+  if (expandedText && expandIcon) {
+    const isExpanded = button.classList.contains('expanded');
+    
+    if (isExpanded) {
+      // Collapse
+      button.classList.remove('expanded');
+      expandedText.classList.remove('show');
+      expandTextElement.textContent = 'Learn More';
+    } else {
+      // Expand
+      button.classList.add('expanded');
+      expandedText.classList.add('show');
+      expandTextElement.textContent = 'Show Less';
+    }
+  }
+}; 
