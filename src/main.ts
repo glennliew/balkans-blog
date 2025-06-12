@@ -426,6 +426,9 @@ class NavigationManager {
         "sarajevo": "Sarajevo, Bosnia and Herzegovina",
         "erasure": "Erasure of Memory",
         "war-tourism": "Memory as Commodity",
+        "reconciliation": "Architecture for Reconciliation",
+        "street-art": "Street Art and Reconciliation",
+        "city-hall": "Institutional Reconciliation",
         "conclusion": "Conclusion"
       };
       
@@ -1059,7 +1062,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Export for potential external use
-export { JourneyApp, journeyState };
+export { JourneyApp, journeyState }; 
 
 // Global function for expandable content
 (window as any).toggleExpand = function(button: HTMLButtonElement): void {

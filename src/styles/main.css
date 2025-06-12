@@ -98,6 +98,7 @@
   display: flex;
   justify-content: space-between;
   position: relative;
+  gap: 4px;
 }
 
 .marker {
@@ -106,6 +107,8 @@
   align-items: center;
   cursor: pointer;
   transition: all 0.3s ease;
+  flex: 1;
+  min-width: 0;
 }
 
 .marker:hover {
@@ -113,24 +116,30 @@
 }
 
 .marker-dot {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.4);
   transition: all 0.3s ease;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .marker.active .marker-dot {
   background: var(--progress-fill);
-  transform: scale(1.5);
+  transform: scale(1.3);
 }
 
 .marker-label {
   font-family: var(--font-interface);
-  font-size: 12px;
+  font-size: 9px;
   color: rgba(255, 255, 255, 0.7);
   transition: color 0.3s ease;
+  text-align: center;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .marker.active .marker-label {
@@ -577,7 +586,7 @@
   font-family: var(--font-heading);
   font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-top: 200px;
 }
 
 .location-subtitle {
@@ -4141,7 +4150,7 @@
   text-align: center;
   margin-top: 32px;
   padding: 24px;
-  background: rgba(255, 255, 255, 0.1);
+  background: #ffffffba;
   border-radius: 16px;
   border: 1px solid rgba(199, 62, 29, 0.2);
 }
@@ -5859,5 +5868,793 @@
   .war-tourism-bg .healing-erasure-section,
   .war-tourism-bg .memory-navigation-conclusion {
     background: rgba(255, 255, 255, 0.8);
+  }
+}
+
+/* Utility Class for Black Text */
+.black-text {
+  color: #000000 !important; /* Ensure the text is rendered in pure black */
+}
+
+/* Reconciliation Section – White Text for Dark Background */
+.reconciliation-bg .location-coordinates,
+.reconciliation-bg .location-title,
+.reconciliation-bg .location-subtitle {
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.reconciliation-bg .chapter-number {
+  background: transparent;
+  color: #ffffff;
+}
+
+.reconciliation-bg .chapter-intro h3 {
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.reconciliation-bg .chapter-description {
+  color: #ecf0f1;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.reconciliation-bg .narrative-block p,
+.reconciliation-bg .placeholder-content p,
+.reconciliation-bg .placeholder-content h4 {
+  color: #ffffff;
+}
+
+/* Utility class: Grey background with 60% opacity */
+.grey-bg {
+  background: rgba(0, 0, 0, 0.6);
+  color: #000000 !important;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+/* Utility Class for White Text */
+.white-text {
+  color: #ffffff !important;
+}
+
+/* Street Art and Reconciliation Section Styles */
+.street-art-bg {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  position: relative;
+}
+
+.street-art-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(44, 62, 80, 0.7) 0%,
+    rgba(52, 73, 94, 0.6) 50%,
+    rgba(41, 128, 185, 0.5) 100%
+  );
+}
+
+.street-art-content {
+  padding: 2rem 0;
+  color: #ffffff;
+}
+
+.street-art-bg .location-coordinates,
+.street-art-bg .location-title,
+.street-art-bg .location-subtitle {
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.street-art-bg .chapter-number {
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid #e74c3c;
+}
+
+.street-art-bg .chapter-intro h3 {
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.street-art-bg .chapter-description {
+  color: #ecf0f1;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+/* Festival Introduction Styles */
+.festival-introduction {
+  margin: 2rem 0;
+}
+
+.street-art-intro {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.street-art-intro:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+.street-art-icon {
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+
+.street-art-intro .card-header h4 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.street-art-intro p {
+  color: #ecf0f1;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Sniper Tower Case Study */
+.sniper-tower-case-study {
+  margin: 3rem 0;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  padding: 2rem;
+  border-left: 4px solid #e74c3c;
+}
+
+.sniper-tower-case-study .case-study-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.sniper-tower-case-study .case-icon {
+  font-size: 2rem;
+  margin-right: 1rem;
+  color: #e74c3c;
+}
+
+.sniper-tower-case-study .case-title h4 {
+  color: #ffffff;
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.sniper-tower-case-study .case-subtitle {
+  color: #bdc3c7;
+  font-style: italic;
+  margin: 0.5rem 0 0 0;
+}
+
+.transformation-overview p {
+  color: #ecf0f1;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Resistance Quote Styling */
+.resistance-quote {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: rgba(231, 76, 60, 0.1);
+  border-left: 4px solid #e74c3c;
+  border-radius: 8px;
+}
+
+.quote-highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.quote-icon {
+  font-size: 1.5rem;
+  color: #e74c3c;
+  margin-top: 0.2rem;
+}
+
+.quote-content p {
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-style: italic;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.4;
+}
+
+.quote-content cite {
+  color: #bdc3c7;
+  font-size: 0.9rem;
+  font-style: normal;
+}
+
+/* Theoretical Framework */
+.theoretical-framework {
+  margin: 3rem 0;
+}
+
+.theoretical-framework h4 {
+  color: #ffffff;
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.theory-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.lefebvre-card,
+.nora-reversal-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.lefebvre-card:hover,
+.nora-reversal-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-4px);
+}
+
+.lefebvre-card {
+  border-top: 4px solid #3498db;
+}
+
+.nora-reversal-card {
+  border-top: 4px solid #9b59b6;
+}
+
+.theory-cards .theorist-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.theory-cards .theorist-icon {
+  font-size: 1.8rem;
+  margin-right: 1rem;
+}
+
+.theory-cards .theorist-details h5 {
+  color: #ffffff;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.theory-cards .theorist-title {
+  color: #bdc3c7;
+  font-size: 0.9rem;
+}
+
+.theory-cards .theory-concept h6 {
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.theory-cards .theory-concept p {
+  color: #ecf0f1;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Mark Jenkins Section */
+.mark-jenkins-section {
+  margin: 3rem 0;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.mark-jenkins-section h4 {
+  color: #ffffff;
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.jenkins-description p {
+  color: #ecf0f1;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.jenkins-image-pair {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* Expand Button Styling for Street Art Section */
+.street-art-bg .expand-btn {
+  background: rgba(231, 76, 60, 0.8);
+  color: #ffffff;
+  border: 1px solid rgba(231, 76, 60, 1);
+}
+
+.street-art-bg .expand-btn:hover {
+  background: rgba(231, 76, 60, 1);
+  transform: translateY(-2px);
+}
+
+.street-art-bg .expanded-text {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.street-art-bg .expanded-text p {
+  color: #ecf0f1;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Responsive Design for Street Art Section */
+@media (max-width: 768px) {
+  .theory-cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .street-art-intro,
+  .sniper-tower-case-study,
+  .mark-jenkins-section {
+    padding: 1.5rem;
+  }
+  
+  .jenkins-image-pair {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .jenkins-image-pair img {
+    width: 100% !important;
+    margin-right: 0 !important;
+  }
+  
+  .street-art-icon,
+  .sniper-tower-case-study .case-icon {
+    font-size: 1.5rem;
+  }
+  
+  .theoretical-framework h4 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .street-art-intro,
+  .sniper-tower-case-study,
+  .mark-jenkins-section {
+    padding: 1rem;
+  }
+  
+  .resistance-quote {
+    padding: 1rem;
+  }
+  
+  .quote-highlight {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .theory-cards .theorist-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .theory-cards .theorist-icon {
+    margin-right: 0;
+  }
+}
+
+/* City Hall and Institutional Reconciliation Section Styles */
+.city-hall-bg {
+  background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+  position: relative;
+}
+
+.city-hall-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(52, 73, 94, 0.8) 0%,
+    rgba(44, 62, 80, 0.7) 50%,
+    rgba(26, 188, 156, 0.6) 100%
+  );
+}
+
+.city-hall-content {
+  padding: 2rem 0;
+  color: #ffffff;
+}
+
+.city-hall-bg .location-coordinates,
+.city-hall-bg .location-title,
+.city-hall-bg .location-subtitle {
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.city-hall-bg .chapter-number {
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid #1abc9c;
+}
+
+.city-hall-bg .chapter-intro h3 {
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.city-hall-bg .chapter-description {
+  color: #ecf0f1;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+/* City Hall Introduction Styles */
+.city-hall-introduction {
+  margin: 2rem 0;
+}
+
+.city-hall-intro {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.city-hall-intro:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+.city-hall-icon {
+  font-size: 2rem;
+  margin-right: 1rem;
+  color: #1abc9c;
+}
+
+.city-hall-intro .card-header h4 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.city-hall-intro p {
+  color: #ecf0f1;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Inclusive Space Section */
+.inclusive-space-section {
+  margin: 3rem 0;
+}
+
+.space-analysis {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  padding: 2rem;
+  border-left: 4px solid #1abc9c;
+}
+
+.analysis-header h4 {
+  color: #ffffff;
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.platform-description p {
+  color: #ecf0f1;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* Significance Highlight */
+.significance-highlight {
+  margin: 2rem 0;
+}
+
+.highlight-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: rgba(26, 188, 156, 0.1);
+  border: 1px solid rgba(26, 188, 156, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.highlight-icon {
+  font-size: 1.8rem;
+  color: #1abc9c;
+  margin-top: 0.2rem;
+}
+
+.highlight-content h5 {
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.highlight-content p {
+  color: #ecf0f1;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Theoretical Synthesis */
+.theoretical-synthesis {
+  margin: 3rem 0;
+}
+
+.theoretical-synthesis h4 {
+  color: #ffffff;
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.synthesis-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.synthesis-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.synthesis-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-4px);
+}
+
+.lefebvre-application {
+  border-top: 4px solid #3498db;
+}
+
+.nora-application {
+  border-top: 4px solid #9b59b6;
+}
+
+.synthesis-cards .theorist-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.synthesis-cards .theorist-icon {
+  font-size: 1.8rem;
+  margin-right: 1rem;
+}
+
+.synthesis-cards .theorist-details h5 {
+  color: #ffffff;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.synthesis-cards .theorist-title {
+  color: #bdc3c7;
+  font-size: 0.9rem;
+}
+
+.synthesis-concept p {
+  color: #ecf0f1;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* City Hall Today Section */
+.city-hall-today-section {
+  margin: 3rem 0;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.city-hall-today-section h4 {
+  color: #ffffff;
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.today-description p {
+  color: #ecf0f1;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* Synthesis Conclusion */
+.synthesis-conclusion {
+  margin: 3rem 0;
+}
+
+.conclusion-card {
+  background: rgba(26, 188, 156, 0.1);
+  border: 1px solid rgba(26, 188, 156, 0.3);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.conclusion-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.conclusion-icon {
+  font-size: 2rem;
+  color: #1abc9c;
+  margin-right: 1rem;
+}
+
+.conclusion-header h4 {
+  color: #ffffff;
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.conclusion-content p {
+  color: #ecf0f1;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.examples-synthesis p {
+  color: #ecf0f1;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.final-insight {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: rgba(26, 188, 156, 0.2);
+  border-radius: 12px;
+  border-left: 4px solid #1abc9c;
+}
+
+.insight-highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.insight-icon {
+  font-size: 1.5rem;
+  color: #1abc9c;
+  margin-top: 0.2rem;
+}
+
+.insight-highlight p {
+  color: #ffffff;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Expand Button Styling for City Hall Section */
+.city-hall-bg .expand-btn {
+  background: rgba(26, 188, 156, 0.8);
+  color: #ffffff;
+  border: 1px solid rgba(26, 188, 156, 1);
+}
+
+.city-hall-bg .expand-btn:hover {
+  background: rgba(26, 188, 156, 1);
+  transform: translateY(-2px);
+}
+
+.city-hall-bg .expanded-text {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.city-hall-bg .expanded-text p {
+  color: #ecf0f1;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Responsive Design for City Hall Section */
+@media (max-width: 768px) {
+  .synthesis-cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .city-hall-intro,
+  .space-analysis,
+  .city-hall-today-section,
+  .conclusion-card {
+    padding: 1.5rem;
+  }
+  
+  .highlight-card {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .highlight-icon {
+    font-size: 1.5rem;
+  }
+  
+  .theoretical-synthesis h4 {
+    font-size: 1.4rem;
+  }
+  
+  .synthesis-cards .theorist-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .synthesis-cards .theorist-icon {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .city-hall-intro,
+  .space-analysis,
+  .city-hall-today-section,
+  .conclusion-card {
+    padding: 1rem;
+  }
+  
+  .highlight-card {
+    padding: 1rem;
+  }
+  
+  .final-insight {
+    padding: 1rem;
+  }
+  
+  .insight-highlight {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .conclusion-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .conclusion-icon {
+    margin-right: 0;
   }
 }
