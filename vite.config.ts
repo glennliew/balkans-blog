@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "./",
+  base: "/balkans-blog/",
   publicDir: "public",
   server: {
     port: 4000,
