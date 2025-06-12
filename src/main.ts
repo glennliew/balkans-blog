@@ -7,31 +7,6 @@ import "@maptiler/sdk/dist/maptiler-sdk.css";
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
-/**
- * Interface for section configuration
- */
-interface SectionConfig {
-  id: string;
-  title: string;
-  coordinates?: {
-    lat: number;
-    lng: number;
-  };
-}
-
-/**
- * Interface for Three.js scene configuration
- */
-interface SceneConfig {
-  canvas: HTMLCanvasElement;
-  section: string;
-  colors: {
-    primary: string;
-    secondary: string;
-    background: string;
-  };
-}
-
 // Global state management
 interface JourneyState {
   currentLocation: string;
@@ -901,20 +876,17 @@ class PostcardManager {
 class JourneyApp {
   private audioManager: AudioManager;
   private sceneManager: SceneManager;
-  private navigationManager: NavigationManager;
-  private audioControlManager: AudioControlManager;
-  private animationManager: AnimationManager;
-  private mediaManager: MediaManager;
-  private postcardManager: PostcardManager;
 
   constructor() {
     this.audioManager = new AudioManager();
     this.sceneManager = new SceneManager();
-    this.navigationManager = new NavigationManager();
-    this.audioControlManager = new AudioControlManager(this.audioManager);
-    this.animationManager = new AnimationManager();
-    this.mediaManager = new MediaManager();
-    this.postcardManager = new PostcardManager();
+    
+    // Initialize managers for their side effects (event binding, etc.)
+    new NavigationManager();
+    new AudioControlManager(this.audioManager);
+    new AnimationManager();
+    new MediaManager();
+    new PostcardManager();
     
     this.initializeApp();
   }
