@@ -4211,17 +4211,48 @@
 
 /* Erasure of Memory Section */
 .erasure-memory-bg {
-  background: linear-gradient(135deg, rgba(40, 40, 40, 0.95), rgba(20, 20, 20, 0.85)), 
-              url('/mostarbulevar.png') center/cover no-repeat;
+  background-image: url('/mostarbulevar.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .erasure-overlay {
   background: linear-gradient(
-      135deg,
-      rgba(139, 69, 19, 0.1) 0%,
-      rgba(160, 82, 45, 0.05) 50%,
-      rgba(101, 67, 33, 0.1) 100%
+    to bottom,
+    rgba(44, 62, 80, 0.7),
+    rgba(220, 20, 60, 0.6),
+    rgba(44, 62, 80, 0.8)
   );
+}
+
+/* War Tourism Background */
+.war-tourism-bg {
+  background-image: url('/wartunnel.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.war-tourism-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(52, 73, 94, 0.8),
+    rgba(231, 76, 60, 0.6),
+    rgba(44, 62, 80, 0.85)
+  );
+}
+
+.war-tourism-content {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .erasure-memory-bg,
+  .war-tourism-bg {
+    background-attachment: scroll;
+  }
 }
 
 .erasure-content {
@@ -5072,4 +5103,749 @@
 
 .erasure-memory-bg .framing-card.concerning {
   background: rgba(220, 20, 60, 0.08);
+} 
+
+/* War Tourism Section */
+.war-tourism-section {
+  margin: 48px 0;
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  border-left: 4px solid #e74c3c;
+}
+
+.war-tourism-section h4 {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.tourism-analysis {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.tourism-intro p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #34495e;
+  font-weight: 500;
+}
+
+.tourism-concerns {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.concern-card {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 28px;
+  border-radius: 12px;
+  border-left: 4px solid #e67e22;
+  transition: all 0.3s ease;
+}
+
+.concern-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.concern-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.concern-icon {
+  font-size: 1.8rem;
+  background: linear-gradient(45deg, #e67e22, #f39c12);
+  padding: 12px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.concern-header h5 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.tourism-expand {
+  background: linear-gradient(45deg, #e67e22, #f39c12);
+  color: white;
+}
+
+.tourism-expand:hover {
+  background: linear-gradient(45deg, #d68910, #e67e22);
+}
+
+.tourism-consequences {
+  background: rgba(231, 76, 60, 0.1);
+  padding: 24px;
+  border-radius: 12px;
+  border: 2px solid rgba(231, 76, 60, 0.2);
+}
+
+.consequences-insight {
+  margin-bottom: 20px;
+}
+
+.insight-highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.highlight-icon {
+  font-size: 1.5rem;
+  background: linear-gradient(45deg, #f39c12, #e67e22);
+  padding: 10px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.highlight-content h6 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0 0 8px 0;
+}
+
+.highlight-content p {
+  margin: 0;
+  color: #34495e;
+  line-height: 1.6;
+}
+
+.gentrification-impact p {
+  font-style: italic;
+  color: #e74c3c;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* Housing Reconstruction Section */
+.housing-reconstruction-section {
+  margin: 48px 0;
+  padding: 32px;
+  background: rgba(52, 152, 219, 0.1);
+  border-radius: 16px;
+  border-left: 4px solid #3498db;
+}
+
+.housing-reconstruction-section h4 {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.reconstruction-analysis {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.reconstruction-stats {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.stats-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 24px 32px;
+  border-radius: 12px;
+  border: 2px solid #3498db;
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.2);
+}
+
+.stats-icon {
+  font-size: 2.5rem;
+  color: #3498db;
+}
+
+.stats-content h5 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.stats-content p {
+  font-size: 1rem;
+  color: #7f8c8d;
+  margin: 4px 0 0 0;
+}
+
+.reconstruction-complexity > p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #34495e;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.complexity-analysis {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.analysis-card {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 24px;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.analysis-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.analysis-card.modern-facades {
+  border-left: 4px solid #2ecc71;
+}
+
+.analysis-card.memory-tension {
+  border-left: 4px solid #e74c3c;
+}
+
+.analysis-card .card-icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.analysis-card h6 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0 0 12px 0;
+}
+
+.analysis-card p {
+  color: #34495e;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Selective Rebuilding Section */
+.selective-rebuilding-section {
+  margin: 48px 0;
+  padding: 32px;
+  background: rgba(155, 89, 182, 0.1);
+  border-radius: 16px;
+  border-left: 4px solid #9b59b6;
+}
+
+.selective-rebuilding-section h4 {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.selective-analysis {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.politics-intro p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #34495e;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.mostar-investment-patterns {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 3px solid #9b59b6;
+}
+
+.pattern-description p {
+  color: #34495e;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.mosque-case-study {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 32px;
+  border-radius: 16px;
+  border: 2px solid rgba(155, 89, 182, 0.3);
+}
+
+.mosque-analysis {
+  margin-top: 24px;
+}
+
+.mosque-overview p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #34495e;
+  margin-bottom: 20px;
+}
+
+.mosque-expand {
+  background: linear-gradient(45deg, #9b59b6, #8e44ad);
+  color: white;
+}
+
+.mosque-expand:hover {
+  background: linear-gradient(45deg, #8e44ad, #9b59b6);
+}
+
+.diplomatic-implications {
+  margin-bottom: 24px;
+}
+
+.diplomatic-implications p {
+  color: #34495e;
+  line-height: 1.6;
+}
+
+.heritage-politics {
+  background: rgba(155, 89, 182, 0.1);
+  padding: 16px;
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+.politics-insight {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.politics-insight .insight-icon {
+  font-size: 1.3rem;
+  color: #9b59b6;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.politics-insight p {
+  color: #34495e;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Healing Erasure Section */
+.healing-erasure-section {
+  margin: 48px 0;
+  padding: 32px;
+  background: rgba(46, 204, 113, 0.1);
+  border-radius: 16px;
+  border-left: 4px solid #2ecc71;
+}
+
+.healing-erasure-section h4 {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.healing-analysis {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.healing-perspective {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.perspective-card {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 28px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 400px;
+  border: 2px solid rgba(46, 204, 113, 0.3);
+  transition: all 0.3s ease;
+}
+
+.perspective-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(46, 204, 113, 0.2);
+}
+
+.perspective-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.perspective-icon {
+  font-size: 1.8rem;
+  background: linear-gradient(45deg, #2ecc71, #27ae60);
+  padding: 12px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.perspective-header h5 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.perspective-card p {
+  color: #34495e;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.normalcy-reclamation {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 24px;
+  border-radius: 12px;
+}
+
+.normalcy-reclamation > p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #34495e;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.creative-solutions {
+  display: flex;
+  justify-content: center;
+}
+
+.solution-example {
+  background: rgba(46, 204, 113, 0.1);
+  padding: 24px;
+  border-radius: 12px;
+  border-left: 4px solid #2ecc71;
+  max-width: 500px;
+}
+
+.example-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.example-icon {
+  font-size: 1.5rem;
+  color: #2ecc71;
+}
+
+.example-header h6 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.solution-example p {
+  color: #34495e;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Memory Navigation Conclusion */
+.memory-navigation-conclusion {
+  margin: 48px 0;
+  padding: 40px;
+  background: linear-gradient(135deg, rgba(44, 62, 80, 0.1), rgba(52, 73, 94, 0.1));
+  border-radius: 16px;
+  border: 2px solid rgba(44, 62, 80, 0.2);
+}
+
+.conclusion-analysis h4 {
+  color: #2c3e50;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 32px;
+  text-align: center;
+  background: linear-gradient(45deg, #3498db, #2c3e50);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.navigation-challenge {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.navigation-challenge > p {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  color: #2c3e50;
+  text-align: center;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.nora-reflection {
+  display: flex;
+  justify-content: center;
+  margin: 32px 0;
+}
+
+.theory-highlight.final-nora {
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(155, 89, 182, 0.1));
+  border: 2px solid rgba(52, 152, 219, 0.3);
+  padding: 32px;
+  border-radius: 16px;
+  max-width: 700px;
+  text-align: center;
+}
+
+.final-nora .theory-icon {
+  font-size: 2rem;
+  background: linear-gradient(45deg, #3498db, #9b59b6);
+  padding: 16px;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.final-nora .theory-content p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #2c3e50;
+  font-weight: 500;
+  margin: 0;
+  font-style: italic;
+}
+
+.ongoing-negotiation {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 32px;
+  border-radius: 12px;
+  border-left: 4px solid #34495e;
+}
+
+.ongoing-negotiation p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #2c3e50;
+  text-align: center;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Responsive Design for New Sections */
+@media (max-width: 768px) {
+  .war-tourism-section,
+  .housing-reconstruction-section,
+  .selective-rebuilding-section,
+  .healing-erasure-section {
+    margin: 32px 0;
+    padding: 24px;
+  }
+
+  .war-tourism-section h4,
+  .housing-reconstruction-section h4,
+  .selective-rebuilding-section h4,
+  .healing-erasure-section h4 {
+    font-size: 1.5rem;
+  }
+
+  .concern-card,
+  .mosque-case-study {
+    padding: 20px;
+  }
+
+  .concern-header,
+  .perspective-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .concern-icon,
+  .perspective-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+
+  .complexity-analysis {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .stats-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .stats-icon {
+    font-size: 2rem;
+  }
+
+  .insight-highlight {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .memory-navigation-conclusion {
+    padding: 24px;
+  }
+
+  .conclusion-analysis h4 {
+    font-size: 1.6rem;
+  }
+
+  .navigation-challenge > p,
+  .ongoing-negotiation p {
+    font-size: 1.1rem;
+  }
+
+  .final-nora .theory-content p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .war-tourism-section,
+  .housing-reconstruction-section,
+  .selective-rebuilding-section,
+  .healing-erasure-section {
+    margin: 24px 0;
+    padding: 16px;
+  }
+
+  .concern-card,
+  .mosque-case-study,
+  .perspective-card {
+    padding: 16px;
+  }
+
+  .concern-header h5,
+  .perspective-header h5 {
+    font-size: 1.2rem;
+  }
+
+  .stats-card {
+    padding: 16px;
+  }
+
+  .stats-content h5 {
+    font-size: 1.3rem;
+  }
+
+  .analysis-card h6,
+  .example-header h6 {
+    font-size: 1.1rem;
+  }
+
+  .memory-navigation-conclusion {
+    padding: 16px;
+  }
+
+  .conclusion-analysis h4 {
+    font-size: 1.4rem;
+  }
+
+  .final-nora {
+    padding: 20px;
+  }
+
+  .final-nora .theory-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+}
+
+.war-tourism-bg .location-coordinates,
+.war-tourism-bg .location-title,
+.war-tourism-bg .location-subtitle {
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.war-tourism-bg .chapter-number {
+  background: linear-gradient(45deg, #e74c3c, #c0392b);
+  color: white;
+}
+
+.war-tourism-bg .chapter-intro h3 {
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.war-tourism-bg .chapter-description {
+  color: #ecf0f1;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.war-tourism-bg .war-tourism-section,
+.war-tourism-bg .housing-reconstruction-section,
+.war-tourism-bg .selective-rebuilding-section,
+.war-tourism-bg .healing-erasure-section,
+.war-tourism-bg .memory-navigation-conclusion {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(5px);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 768px) {
+  .war-tourism-bg .war-tourism-section,
+  .war-tourism-bg .housing-reconstruction-section,
+  .war-tourism-bg .selective-rebuilding-section,
+  .war-tourism-bg .healing-erasure-section,
+  .war-tourism-bg .memory-navigation-conclusion {
+    background: rgba(255, 255, 255, 0.8);
+  }
 }

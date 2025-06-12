@@ -424,6 +424,8 @@ class NavigationManager {
         "mostar": "Mostar, Bosnia and Herzegovina",
         "budva": "Budva, Montenegro",
         "sarajevo": "Sarajevo, Bosnia and Herzegovina",
+        "erasure": "Erasure of Memory",
+        "war-tourism": "Memory as Commodity",
         "conclusion": "Conclusion"
       };
       
