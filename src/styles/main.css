@@ -483,8 +483,8 @@
 .sarajevo-overlay {
   background: linear-gradient(
     135deg,
-    rgba(241, 143, 1, 0.1) 0%,
-    rgba(241, 143, 1, 0.05) 100%
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.6) 100%
   );
 }
 
@@ -2489,7 +2489,7 @@
 }
 
 .expanded-text.show {
-  max-height: 1000px;
+  max-height: 3000px;
   padding: 24px 16px 16px 16px;
 }
 
@@ -3219,6 +3219,11 @@
     grid-template-columns: 1fr;
     gap: 24px;
   }
+
+  .urban-dichotomy-image {
+    max-width: 100%;
+    margin: 20px auto;
+  }
 }
 
 @media (max-width: 480px) {
@@ -3244,6 +3249,12 @@
 
   .meaning-card {
     padding: 24px 20px;
+  }
+
+  .urban-dichotomy-image {
+    max-width: 100%;
+    margin: 16px auto;
+    border-radius: 6px;
   }
 }
 
@@ -3302,4 +3313,1763 @@
   padding: 0 8px;
 }
 
-/* Memory Politics Section */
+/* Urban Dichotomy Image */
+.urban-dichotomy-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  margin: 24px auto 0 auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.urban-dichotomy-image:hover {
+  transform: scale(1.02);
+}
+
+/* Sarajevo Image Background */
+.sarajevo-image-bg {
+  background-image: url('/sarajevo.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Responsive background for mobile */
+@media (max-width: 768px) {
+  .sarajevo-image-bg {
+    background-attachment: scroll;
+  }
+}
+
+/* Sarajevo Section Specific Styles */
+.sarajevo-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.sarajevo-overview {
+  margin-bottom: 60px;
+}
+
+.sarajevo-overview .overview-card {
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(241, 143, 1, 0.3);
+  border-radius: 20px;
+  padding: 40px;
+  backdrop-filter: blur(15px);
+  transition: all 0.3s ease;
+}
+
+.sarajevo-overview .overview-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 48px rgba(241, 143, 1, 0.2);
+  border-color: rgba(241, 143, 1, 0.5);
+}
+
+.sarajevo-icon {
+  font-size: 2.5rem;
+  color: var(--sarajevo-color);
+}
+
+.sarajevo-expand {
+  background: var(--sarajevo-color);
+  color: white;
+}
+
+.sarajevo-expand:hover {
+  background: rgba(241, 143, 1, 0.8);
+}
+
+/* Healing Section */
+.healing-section {
+  margin-bottom: 60px;
+}
+
+.healing-section h4 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.healing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+}
+
+.healing-card {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: all 0.4s ease;
+  border: 2px solid;
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.healing-card.repair {
+  border-color: rgba(46, 134, 171, 0.4);
+  background: linear-gradient(135deg, rgba(46, 134, 171, 0.1), rgba(46, 134, 171, 0.05));
+}
+
+.healing-card.traces {
+  border-color: rgba(241, 143, 1, 0.4);
+  background: linear-gradient(135deg, rgba(241, 143, 1, 0.1), rgba(241, 143, 1, 0.05));
+}
+
+.healing-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 64px rgba(0, 0, 0, 0.15);
+}
+
+.healing-icon {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+
+.healing-card h5 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: #000000;
+  margin-bottom: 12px;
+}
+
+.healing-card p {
+  color: #000000;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Witnessing Case Study */
+.witnessing-case-study {
+  margin-bottom: 60px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(241, 143, 1, 0.2);
+  border-radius: 24px;
+  padding: 48px;
+  backdrop-filter: blur(15px);
+}
+
+.witnessing-case-study .case-study-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(241, 143, 1, 0.2);
+}
+
+.witnessing-case-study .case-icon {
+  font-size: 3rem;
+  color: var(--sarajevo-color);
+  flex-shrink: 0;
+}
+
+.witnessing-expand {
+  background: var(--sarajevo-color);
+  color: white;
+}
+
+.witnessing-expand:hover {
+  background: rgba(241, 143, 1, 0.8);
+}
+
+/* Timeline Markers for Sarajevo */
+.marker-dot.siege {
+  background: #C73E1D;
+}
+
+.marker-dot.healing {
+  background: #2E86AB;
+}
+
+/* Trauma Details and Memory Persistence */
+.trauma-details,
+.memory-persistence,
+.quiet-witnessing {
+  margin-bottom: 32px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+
+.trauma-details p,
+.memory-persistence p {
+  color: #000000;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.memory-insight {
+  background: rgba(241, 143, 1, 0.1);
+  border-left: 4px solid var(--sarajevo-color);
+  padding: 20px 24px;
+  border-radius: 0 12px 12px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.memory-insight .insight-icon {
+  font-size: 1.5rem;
+  color: var(--sarajevo-color);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.memory-insight p {
+  margin: 0;
+  color: #000000;
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+.witnessing-card {
+  background: linear-gradient(135deg, rgba(241, 143, 1, 0.15), rgba(241, 143, 1, 0.05));
+  border: 2px solid rgba(241, 143, 1, 0.3);
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+}
+
+.witnessing-card h6 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: var(--sarajevo-color);
+  margin-bottom: 16px;
+}
+
+.witnessing-card p {
+  color: #000000;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Sarajevo Section Header Specific Styling */
+.sarajevo-image-bg .location-coordinates,
+.sarajevo-image-bg .location-title,
+.sarajevo-image-bg .location-subtitle,
+.sarajevo-image-bg .chapter-number,
+.sarajevo-image-bg .chapter-intro h3,
+.sarajevo-image-bg .chapter-description {
+  color: #000000 !important;
+}
+
+/* Responsive Design for Sarajevo Section */
+@media (max-width: 768px) {
+  .sarajevo-content {
+    padding: 32px 0;
+  }
+
+  .sarajevo-overview .overview-card,
+  .witnessing-case-study {
+    padding: 32px 24px;
+  }
+
+  .witnessing-case-study .case-study-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .witnessing-case-study .case-icon {
+    font-size: 2.5rem;
+  }
+
+  .witnessing-case-study .case-title h4 {
+    font-size: 1.5rem;
+  }
+
+  .healing-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .memory-insight {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .memory-insight .insight-icon {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sarajevo-overview .overview-card,
+  .witnessing-case-study {
+    padding: 24px 20px;
+  }
+
+  .sarajevo-icon,
+  .witnessing-case-study .case-icon {
+    font-size: 2rem;
+  }
+
+  .sarajevo-overview .overview-card h4,
+  .witnessing-case-study .case-title h4 {
+    font-size: 1.3rem;
+}
+
+  .healing-card {
+    padding: 24px 20px;
+  }
+
+  .witnessing-card {
+    padding: 24px 20px;
+  }
+}
+
+/* Sarajevo Patched Image */
+.sarajevo-patched-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  margin: 24px auto 0 auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.sarajevo-patched-image:hover {
+  transform: scale(1.02);
+}
+
+/* Budva Witnessing Section - Redesigned */
+.budva-witnessing-bg {
+  background: linear-gradient(135deg, rgba(0, 30, 43, 0.05), rgba(46, 134, 171, 0.02));
+}
+
+.budva-witnessing-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.7) 0%,
+    rgba(255, 255, 255, 0.6) 100%
+  );
+}
+
+.budva-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+/* Intentional Witnessing Section */
+.intentional-witnessing-section {
+  margin-bottom: 60px;
+}
+
+.witnessing-intro-card {
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(46, 134, 171, 0.3);
+  border-radius: 20px;
+  padding: 40px;
+  backdrop-filter: blur(15px);
+  margin-bottom: 48px;
+  transition: all 0.3s ease;
+}
+
+.witnessing-intro-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 48px rgba(46, 134, 171, 0.2);
+}
+
+.bulevar-icon {
+  font-size: 2.5rem;
+  color: var(--budva-color);
+}
+
+.intro-text {
+  color: #000000;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+/* Bulevar Discovery Section */
+.bulevar-discovery {
+  margin-bottom: 48px;
+}
+
+.bulevar-discovery h4 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.discovery-narrative {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 40px;
+  backdrop-filter: blur(10px);
+}
+
+.narrative-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.discovery-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  border-left: 4px solid var(--budva-color);
+  transition: all 0.3s ease;
+}
+
+.discovery-step:hover {
+  transform: translateX(8px);
+  box-shadow: 0 8px 32px rgba(0, 30, 43, 0.1);
+}
+
+.step-icon {
+  font-size: 2rem;
+  color: var(--budva-color);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.step-content h5 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: #000000;
+  margin-bottom: 12px;
+}
+
+.step-content p {
+  color: #000000;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Bulevar Image Section */
+.bulevar-image-section {
+  margin: 48px 0;
+  text-align: center;
+}
+
+.bulevar-image {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  margin: 0 auto 16px auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.bulevar-image:hover {
+  transform: scale(1.02);
+}
+
+/* Deliberate Preservation Analysis */
+.deliberate-preservation-analysis {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(46, 134, 171, 0.2);
+  border-radius: 24px;
+  padding: 48px;
+  backdrop-filter: blur(15px);
+}
+
+.analysis-header h4 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.preservation-insight {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.insight-card {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 32px 24px;
+  transition: all 0.4s ease;
+  border: 2px solid;
+  backdrop-filter: blur(10px);
+}
+
+.insight-card.intentional {
+  border-color: rgba(46, 134, 171, 0.4);
+  background: linear-gradient(135deg, rgba(46, 134, 171, 0.1), rgba(46, 134, 171, 0.05));
+}
+
+.insight-card.evidence {
+  border-color: rgba(241, 143, 1, 0.4);
+  background: linear-gradient(135deg, rgba(241, 143, 1, 0.1), rgba(241, 143, 1, 0.05));
+}
+
+.insight-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 64px rgba(0, 0, 0, 0.15);
+}
+
+.insight-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.insight-icon {
+  font-size: 1.8rem;
+  color: var(--budva-color);
+}
+
+.insight-header h5 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: #000000;
+  margin: 0;
+}
+
+.insight-card p {
+  color: #000000;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Expand Button for Bulevar */
+.bulevar-expand {
+  background: var(--budva-color);
+  color: white;
+}
+
+.bulevar-expand:hover {
+  background: rgba(0, 30, 43, 0.8);
+}
+
+/* Memory Analysis in Expanded Section */
+.memory-analysis {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.analysis-section {
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+
+.analysis-section h6 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--budva-color);
+  margin-bottom: 16px;
+}
+
+.analysis-section p {
+  color: #000000;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.theory-application {
+  background: rgba(0, 30, 43, 0.1);
+  border: 2px solid rgba(0, 30, 43, 0.2);
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.theory-highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.theory-icon {
+  font-size: 2rem;
+  color: var(--budva-color);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.theory-content h6 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: var(--budva-color);
+  margin-bottom: 16px;
+}
+
+.theory-content p {
+  color: #000000;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.dual-function {
+  text-align: center;
+}
+
+.function-card {
+  background: linear-gradient(135deg, rgba(199, 62, 29, 0.15), rgba(199, 62, 29, 0.05));
+  border: 2px solid rgba(199, 62, 29, 0.3);
+  border-radius: 16px;
+  padding: 32px;
+  display: inline-block;
+  max-width: 600px;
+}
+
+.function-card h6 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: var(--conclusion-color);
+  margin-bottom: 16px;
+}
+
+.function-card p {
+  color: #000000;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Budva Section Header Specific Styling */
+.budva-witnessing-bg .location-coordinates,
+.budva-witnessing-bg .location-title,
+.budva-witnessing-bg .location-subtitle,
+.budva-witnessing-bg .chapter-number,
+.budva-witnessing-bg .chapter-intro h3,
+.budva-witnessing-bg .chapter-description {
+  color: #000000 !important;
+}
+
+/* Responsive Design for Budva Section */
+@media (max-width: 768px) {
+  .budva-content {
+    padding: 32px 0;
+}
+
+  .witnessing-intro-card,
+  .deliberate-preservation-analysis {
+    padding: 32px 24px;
+  }
+
+  .discovery-narrative {
+    padding: 32px 24px;
+  }
+
+  .narrative-flow {
+    gap: 24px;
+  }
+
+  .discovery-step {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .step-icon {
+    font-size: 1.8rem;
+  }
+
+  .preservation-insight {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .theory-highlight {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .theory-icon {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .witnessing-intro-card,
+  .deliberate-preservation-analysis {
+    padding: 24px 20px;
+  }
+
+  .discovery-narrative {
+    padding: 24px 20px;
+  }
+
+  .discovery-step {
+    padding: 16px;
+  }
+
+  .bulevar-icon,
+  .step-icon {
+    font-size: 1.5rem;
+  }
+
+  .insight-card {
+    padding: 24px 20px;
+  }
+
+  .theory-application {
+    padding: 24px 20px;
+  }
+
+  .function-card {
+    padding: 24px 20px;
+  }
+} 
+
+/* Mostar Bulevar Background */
+.mostar-bulevar-bg {
+  background-image: url('/mostarbulevar.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Responsive background for mobile */
+@media (max-width: 768px) {
+  .mostar-bulevar-bg {
+    background-attachment: scroll;
+  }
+}
+
+/* Budva Witnessing Section - Redesigned */
+.budva-witnessing-bg {
+  background: linear-gradient(135deg, rgba(0, 30, 43, 0.05), rgba(46, 134, 171, 0.02));
+}
+
+/* Discovery Image */
+.discovery-image-container {
+  text-align: center;
+  margin: 16px 0 0 0;
+}
+
+.discovery-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.discovery-image:hover {
+  transform: scale(1.02);
+}
+
+/* Architectural Archive Conclusion */
+.architectural-archive-conclusion {
+  margin: 60px 0 40px 0;
+  background: linear-gradient(135deg, rgba(199, 62, 29, 0.15), rgba(199, 62, 29, 0.05));
+  border: 2px solid rgba(199, 62, 29, 0.3);
+  border-radius: 24px;
+  padding: 48px;
+  backdrop-filter: blur(15px);
+  position: relative;
+  overflow: hidden;
+}
+
+.architectural-archive-conclusion::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--conclusion-color), rgba(199, 62, 29, 0.6));
+}
+
+.conclusion-content h4 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--conclusion-color);
+  text-align: center;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.archive-reflection {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.archive-reflection p {
+  color: #000000;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 24px;
+  text-align: justify;
+}
+
+.final-statement {
+  text-align: center;
+  margin-top: 32px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  border: 1px solid rgba(199, 62, 29, 0.2);
+}
+
+.final-statement p {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: var(--conclusion-color);
+  margin: 0;
+  text-align: center;
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
+.final-statement strong {
+  font-weight: 600;
+}
+
+/* Responsive Design for Archive Conclusion */
+@media (max-width: 768px) {
+  .architectural-archive-conclusion {
+    margin: 48px 0 32px 0;
+    padding: 32px 24px;
+  }
+
+  .conclusion-content h4 {
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+  }
+
+  .archive-reflection p {
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  .final-statement {
+    padding: 20px;
+    margin-top: 24px;
+  }
+
+  .final-statement p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .architectural-archive-conclusion {
+    padding: 24px 20px;
+    margin: 40px 0 24px 0;
+  }
+
+  .conclusion-content h4 {
+    font-size: 1.3rem;
+  }
+
+  .archive-reflection p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .final-statement {
+    padding: 16px;
+  }
+
+  .final-statement p {
+    font-size: 1rem;
+  }
+}
+
+/* Budva Section Header Specific Styling */
+.mostar-bulevar-bg .location-coordinates,
+.mostar-bulevar-bg .location-title,
+.mostar-bulevar-bg .location-subtitle,
+.mostar-bulevar-bg .chapter-number,
+.mostar-bulevar-bg .chapter-intro h3,
+.mostar-bulevar-bg .chapter-description {
+  color: #000000 !important;
+}
+
+/* Erasure of Memory Section */
+.erasure-memory-bg {
+  background: linear-gradient(135deg, rgba(40, 40, 40, 0.95), rgba(20, 20, 20, 0.85)), 
+              url('/mostarbulevar.png') center/cover no-repeat;
+}
+
+.erasure-overlay {
+  background: linear-gradient(
+      135deg,
+      rgba(139, 69, 19, 0.1) 0%,
+      rgba(160, 82, 45, 0.05) 50%,
+      rgba(101, 67, 33, 0.1) 100%
+  );
+}
+
+.erasure-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  color: #000;
+}
+
+.erasure-overview-section {
+  margin-bottom: 3rem;
+}
+
+.erasure-intro-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-left: 4px solid #8B4513;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.erasure-intro-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+}
+
+.erasure-icon {
+  font-size: 1.8rem;
+  margin-right: 0.75rem;
+}
+
+.erasure-expand {
+  background: linear-gradient(135deg, #8B4513, #A0522D);
+  color: white;
+}
+
+.erasure-expand:hover {
+  background: linear-gradient(135deg, #A0522D, #CD853F);
+}
+
+.dayton-framework-section {
+  margin-bottom: 3rem;
+}
+
+.dayton-framework-section h4 {
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #8B4513;
+}
+
+.framework-analysis {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.framework-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.framework-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 0.75rem;
+}
+
+.framework-icon {
+  font-size: 1.5rem;
+  color: #8B4513;
+}
+
+.framework-header h5 {
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.framework-card p {
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.political-dynamics {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(139, 69, 19, 0.2);
+}
+
+.dynamics-insight {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.dynamics-insight .insight-icon {
+  font-size: 1.2rem;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.insight-content h6 {
+  color: #000;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+
+.insight-content p {
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.consequences-section {
+  margin-bottom: 3rem;
+}
+
+.consequences-section h4 {
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #8B4513;
+}
+
+.consequences-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.consequence-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border-left: 4px solid #8B4513;
+  transition: all 0.3s ease;
+}
+
+.consequence-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.consequence-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 0.75rem;
+}
+
+.consequence-icon {
+  font-size: 1.5rem;
+  color: #8B4513;
+}
+
+.consequence-header h5 {
+  color: #000;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.consequence-card p {
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.stari-most-case-study {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  border-left: 4px solid #8B4513;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.stari-most-case-study .case-study-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(139, 69, 19, 0.2);
+}
+
+.stari-most-case-study .case-icon {
+  font-size: 2rem;
+  color: #8B4513;
+  margin-top: 0.2rem;
+}
+
+.reconstruction-overview {
+  margin-bottom: 1.5rem;
+}
+
+.reconstruction-overview p {
+  color: #333;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.stari-most-expand {
+  background: linear-gradient(135deg, #8B4513, #A0522D);
+  color: white;
+}
+
+.stari-most-expand:hover {
+  background: linear-gradient(135deg, #A0522D, #CD853F);
+}
+
+.neutrality-efforts,
+.reconstruction-aims {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(139, 69, 19, 0.05);
+  border-radius: 8px;
+}
+
+.neutrality-efforts h6,
+.reconstruction-aims h6 {
+  color: #000;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem 0;
+}
+
+.neutrality-efforts p,
+.reconstruction-aims p {
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.aims-highlight {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  border-left: 3px solid #8B4513;
+}
+
+.aims-icon {
+  font-size: 1.2rem;
+  color: #8B4513;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.aims-content h6 {
+  color: #000;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+
+.aims-content p {
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Complex Reality Section */
+.complex-reality-section {
+  margin-bottom: 3rem;
+}
+
+.complex-reality-section h4 {
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #8B4513;
+}
+
+.reality-analysis {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.popovac-insight {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 2rem;
+  border-left: 4px solid #8B4513;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.scholar-icon {
+  font-size: 1.5rem;
+  color: #8B4513;
+  margin-right: 0.75rem;
+}
+
+.popovac-insight .insight-header h5 {
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.popovac-insight > p {
+  color: #333;
+  line-height: 1.6;
+  margin: 1rem 0;
+  font-size: 1rem;
+}
+
+.critical-analysis {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(139, 69, 19, 0.2);
+}
+
+.analysis-point {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.point-icon {
+  font-size: 1.2rem;
+  color: #D2691E;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.point-content p {
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.lived-reality {
+  background: rgba(139, 69, 19, 0.05);
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 3px solid #8B4513;
+}
+
+.lived-reality h6 {
+  color: #000;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem 0;
+}
+
+.lived-reality p {
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Razvitak Redevelopment Section */
+.razvitak-redevelopment-section {
+  margin-bottom: 3rem;
+}
+
+.razvitak-redevelopment-section h4 {
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #8B4513;
+}
+
+.redevelopment-analysis {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contrast-intro {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border-left: 4px solid #8B4513;
+}
+
+.contrast-intro p {
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.current-state {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border-left: 4px solid #A0522D;
+}
+
+.state-description {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.state-icon {
+  font-size: 1.5rem;
+  color: #A0522D;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.state-content h5 {
+  color: #000;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+
+.state-content p {
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.redevelopment-plans {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 2rem;
+  border-left: 4px solid #8B4513;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.plans-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.plans-icon {
+  font-size: 1.5rem;
+  color: #8B4513;
+}
+
+.plans-header h5 {
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.redevelopment-plans > p {
+  color: #333;
+  line-height: 1.6;
+  margin: 1rem 0;
+}
+
+.project-framing {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.framing-card {
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 3px solid transparent;
+}
+
+.framing-card.positive {
+  background: rgba(34, 139, 34, 0.1);
+  border-left-color: #228B22;
+}
+
+.framing-card.concerning {
+  background: rgba(220, 20, 60, 0.1);
+  border-left-color: #DC143C;
+}
+
+.framing-card h6 {
+  color: #000;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+
+.framing-card p {
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.erasure-mechanism {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 2rem;
+  border-left: 4px solid #DC143C;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.subtle-erasure,
+.material-evidence,
+.urban-amnesia {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(220, 20, 60, 0.05);
+  border-radius: 8px;
+}
+
+.subtle-erasure h6,
+.material-evidence h6,
+.urban-amnesia h6 {
+  color: #000;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem 0;
+}
+
+.subtle-erasure p,
+.material-evidence p,
+.urban-amnesia p {
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.evidence-loss {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.loss-icon {
+  font-size: 1.2rem;
+  color: #DC143C;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.loss-content h6 {
+  color: #000;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+
+.loss-content p {
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.amnesia-analysis {
+  margin-top: 1rem;
+}
+
+.erasure-method {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(220, 20, 60, 0.2);
+}
+
+.method-highlight {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  border-left: 3px solid #DC143C;
+}
+
+.method-icon {
+  font-size: 1.2rem;
+  color: #DC143C;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.method-highlight p {
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  font-style: italic;
+}
+
+.method-highlight strong {
+  color: #000;
+  font-weight: 600;
+}
+
+.erasure-memory-bg .location-coordinates,
+.erasure-memory-bg .location-title,
+.erasure-memory-bg .location-subtitle {
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.erasure-memory-bg .chapter-number {
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.erasure-memory-bg .chapter-intro h3 {
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.erasure-memory-bg .chapter-description {
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.erasure-memory-bg .dayton-framework-section h4,
+.erasure-memory-bg .consequences-section h4,
+.erasure-memory-bg .complex-reality-section h4,
+.erasure-memory-bg .razvitak-redevelopment-section h4,
+.erasure-memory-bg .section-transition .transition-text {
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive Design for Erasure Section */
+@media (max-width: 768px) {
+  .erasure-content {
+    padding: 2rem 0;
+  }
+
+  .erasure-intro-card,
+  .framework-analysis,
+  .stari-most-case-study {
+    padding: 1.5rem;
+  }
+
+  .stari-most-case-study .case-study-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .stari-most-case-study .case-icon {
+    font-size: 1.8rem;
+  }
+
+  .consequences-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .dynamics-insight,
+  .aims-highlight {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .framework-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  /* Complex Reality Section Responsive */
+  .complex-reality-section h4 {
+    font-size: 1.3rem;
+  }
+
+  .popovac-insight {
+    padding: 1.5rem;
+  }
+
+  .analysis-point {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .lived-reality {
+    padding: 0.75rem;
+  }
+
+  /* Razvitak Redevelopment Section Responsive */
+  .razvitak-redevelopment-section h4 {
+    font-size: 1.3rem;
+  }
+
+  .contrast-intro,
+  .current-state,
+  .redevelopment-plans {
+    padding: 1.5rem;
+  }
+
+  .state-description {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .project-framing {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .erasure-mechanism {
+    padding: 1.5rem;
+  }
+
+  .evidence-loss {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .method-highlight {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .erasure-intro-card,
+  .framework-analysis,
+  .stari-most-case-study {
+    padding: 1rem;
+  }
+
+  .erasure-icon,
+  .framework-icon,
+  .stari-most-case-study .case-icon {
+    font-size: 1.5rem;
+  }
+
+  .consequence-card {
+    padding: 1rem;
+  }
+
+  .political-dynamics,
+  .neutrality-efforts,
+  .reconstruction-aims {
+    padding: 0.75rem;
+  }
+
+  /* Complex Reality Section Mobile */
+  .complex-reality-section h4,
+  .razvitak-redevelopment-section h4 {
+    font-size: 1.2rem;
+  }
+
+  .popovac-insight {
+    padding: 1rem;
+  }
+
+  .popovac-insight .insight-header h5 {
+    font-size: 1.1rem;
+  }
+
+  .scholar-icon {
+    font-size: 1.3rem;
+  }
+
+  .lived-reality {
+    padding: 0.5rem;
+  }
+
+  /* Razvitak Redevelopment Section Mobile */
+  .contrast-intro,
+  .current-state,
+  .redevelopment-plans,
+  .erasure-mechanism {
+    padding: 1rem;
+  }
+
+  .state-icon,
+  .plans-icon {
+    font-size: 1.3rem;
+  }
+
+  .state-content h5,
+  .plans-header h5 {
+    font-size: 1rem;
+  }
+
+  .framing-card {
+    padding: 0.75rem;
+  }
+
+  .framing-card h6 {
+    font-size: 0.95rem;
+  }
+
+  .subtle-erasure,
+  .material-evidence,
+  .urban-amnesia {
+    padding: 0.75rem;
+  }
+
+  .method-highlight {
+    padding: 0.5rem;
+  }
+}
+
+/* Erasure section text boxes with 80% opacity */
+.erasure-memory-bg .erasure-intro-card,
+.erasure-memory-bg .framework-card,
+.erasure-memory-bg .consequence-card,
+.erasure-memory-bg .stari-most-case-study,
+.erasure-memory-bg .popovac-insight,
+.erasure-memory-bg .contrast-intro,
+.erasure-memory-bg .current-state,
+.erasure-memory-bg .redevelopment-plans,
+.erasure-memory-bg .erasure-mechanism {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.erasure-memory-bg .political-dynamics,
+.erasure-memory-bg .neutrality-efforts,
+.erasure-memory-bg .reconstruction-aims,
+.erasure-memory-bg .critical-analysis,
+.erasure-memory-bg .lived-reality,
+.erasure-memory-bg .subtle-erasure,
+.erasure-memory-bg .material-evidence,
+.erasure-memory-bg .urban-amnesia {
+  background: rgba(139, 69, 19, 0.08);
+}
+
+.erasure-memory-bg .aims-highlight,
+.erasure-memory-bg .method-highlight {
+  background: rgba(255, 255, 255, 0.56);
+}
+
+.erasure-memory-bg .framing-card.positive {
+  background: rgba(34, 139, 34, 0.08);
+}
+
+.erasure-memory-bg .framing-card.concerning {
+  background: rgba(220, 20, 60, 0.08);
+}
