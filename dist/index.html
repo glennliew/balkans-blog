@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="/balkans-blog/assets/index-Cm4ERkj4.js"></script>
-  <link rel="stylesheet" crossorigin href="/balkans-blog/assets/index-C9v7KSxr.css">
+  <script type="module" crossorigin src="/balkans-blog/assets/index-C7H_oUvL.js"></script>
+  <link rel="stylesheet" crossorigin href="/balkans-blog/assets/index-lEzAgkme.css">
 </head>
 <body class="documentary-body">
     <!-- Progress Navigation -->
@@ -48,6 +48,10 @@
                         <span class="marker-dot"></span>
                         <span class="marker-label">Erasure</span>
                     </div>
+                    <div class="marker" data-location="war-tourism">
+                        <span class="marker-dot"></span>
+                        <span class="marker-label">Tourism</span>
+                    </div>
                     <div class="marker" data-location="conclusion">
                         <span class="marker-dot"></span>
                         <span class="marker-label">Reflection</span>
@@ -81,7 +85,7 @@
         <section id="hero" class="journey-section hero-section" data-location="hero">
             <div class="section-background">
                 <video id="hero-video" class="background-video" autoplay muted loop playsinline>
-                    <source src="/balkans-blog/hero1.mp4" type="video/mp4">
+                    <source src="dist/hero.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
                 <canvas id="hero-canvas" class="background-canvas"></canvas>
@@ -1073,149 +1077,176 @@
                     </div>
                 </div>
 
-                <div class="war-tourism-section">
-                    <h4>War Tourism: Memory as Commodity</h4>
-                    <div class="tourism-analysis">
-                        <div class="tourism-intro">
-                            <p><strong>This form of erasure is not only confined to Mostar.</strong> In Sarajevo, similar tensions emerge around the rise of war tourism. Museums and guided tours that focus on the years during the siege are increasingly marketed to international visitors, offering curated experiences of trauma and resilience.</p>
-                        </div>
+                <div class="section-transition">
+                    <p class="transition-text">The politics of memory extend beyond official reconstruction into the realm of tourism and commodification...</p>
+                </div>
+            </div>
+        </section>
 
-                        <div class="tourism-concerns">
-                            <div class="concern-card">
-                                <div class="concern-header">
-                                    <span class="concern-icon">👥</span>
-                                    <h5>Commodified Suffering</h5>
-                                </div>
-                                <p>While these attractions can raise awareness and provide educational value, they also risk reducing lived suffering to spectacle.</p>
-                                
-                                <div class="expandable-content">
-                                    <button class="expand-btn tourism-expand" onclick="toggleExpand(this)">
-                                        <span class="expand-text">Explore the Concerns</span>
-                                        <span class="expand-icon">▼</span>
-                                    </button>
-                                    <div class="expanded-text">
-                                        <p>For instance, some tours focus on sniper alley, frontline ruins and former bunkers, packaged into experiences that can feel more like entertainment than reflection. The Tunnel Museum, while grounded in authentic history and preserving a vital ingress and egress to Sarajevo during the siege, also participates in this commodification, with its emotional impact shaped by curated displays of visitor expectations.</p>
-                                        
-                                        <div class="media-insertion-area">
-                                            <div class="media-placeholder photo-placeholder">
-                                                <div class="placeholder-content">
-                                                    <span class="placeholder-icon">🚇</span>
-                                                    <h4>Tunnel Museum Reconstruction</h4>
-                                                    <p>Reconstructed tunnel in the Tunnel Museum, height of the tunnel increased from 1.6m to 1.8m.</p>
-                                                    <button class="media-insert-btn">+ Insert Image</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <p>In these contexts, memory becomes performative, raising difficult questions about how much of the war experience is being shared and how much is being staged.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tourism-consequences">
-                            <div class="consequences-insight">
-                                <div class="insight-highlight">
-                                    <span class="highlight-icon">💰</span>
-                                    <div class="highlight-content">
-                                        <h6>Economic vs. Authentic Memory</h6>
-                                        <p>Tourism, while economically beneficial, encourages selective memory. Sites that align with international curiosity are promoted, while more mundane or complex histories are sidelined.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="gentrification-impact">
-                                <p>This, in turn, feeds into urban gentrification, as once-devastated neighbourhoods are refurbished for tourist consumption. In Sarajevo, this pressure displaces long-time residents whose lives are intertwined with the very memories being commodified.</p>
-                            </div>
-                        </div>
-                    </div>
+        <!-- War Tourism and Memory Commodification Section -->
+        <section id="war-tourism" class="journey-section location-section war-tourism-bg" data-location="war-tourism">
+            <div class="section-background">
+                <div class="background-overlay war-tourism-overlay"></div>
+            </div>
+            
+            <div class="content-container">
+                <div class="location-header">
+                    <div class="location-coordinates">Sarajevo & Beyond</div>
+                    <h2 class="location-title">Memory as Commodity</h2>
+                    <p class="location-subtitle">Tourism, Gentrification, and the Performance of Trauma</p>
                 </div>
 
-                <div class="housing-reconstruction-section">
-                    <h4>Housing Reconstruction: Progress Through Erasure</h4>
-                    <div class="reconstruction-analysis">
-                        <div class="reconstruction-stats">
-                            <div class="stats-card">
-                                <div class="stats-icon">🏠</div>
-                                <div class="stats-content">
-                                    <h5>260,000+ Homes Rebuilt</h5>
-                                    <p>Since 1996</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="reconstruction-complexity">
-                            <p>Even large-scale housing reconstruction, while vital for recovery, has a complicated relationship with memory. The rehabilitation of over 260,000 homes since 1996 is a remarkable achievement.</p>
-                            
-                            <div class="complexity-analysis">
-                                <div class="analysis-card modern-facades">
-                                    <div class="card-icon">🔄</div>
-                                    <h6>Modern Facades</h6>
-                                    <p>Yet in many cases, these homes have been rebuilt with modern facades that erase signs of wartime damage.</p>
-                                </div>
-                                
-                                <div class="analysis-card memory-tension">
-                                    <div class="card-icon">⚖️</div>
-                                    <h6>Memory Tension</h6>
-                                    <p>While this can help residents move forward, it also removes subtle architectural witnesses such as patches, bullet scars, and cracks that once silently testified to what had been endured.</p>
-                                </div>
-                            </div>
-                        </div>
+                <div class="war-tourism-content">
+                    <div class="chapter-intro">
+                        <div class="chapter-number">05</div>
+                        <h3>When Memory Becomes Spectacle</h3>
+                        <p class="chapter-description">How trauma is packaged for consumption and communities are displaced</p>
                     </div>
-                </div>
 
-                <div class="selective-rebuilding-section">
-                    <h4>The Politics of Selective Rebuilding</h4>
-                    <div class="selective-analysis">
-                        <div class="politics-intro">
-                            <p>The politics of selective rebuilding are especially visible in areas marked by lingering ethnic tension, where the urban fabric becomes a memory map of competing identities.</p>
-                        </div>
-
-                        <div class="mostar-investment-patterns">
-                            <div class="pattern-description">
-                                <p>In Mostar, investment remains patchy, while others are left neglected. This is especially true with religious and civic architecture that often reflects the identity of the area's dominant ethnic group.</p>
-                            </div>
-                        </div>
-
-                        <div class="mosque-case-study">
-                            <div class="case-study-header">
-                                <div class="case-icon">🕌</div>
-                                <div class="case-title">
-                                    <h4>Case Study: Koski Mehmed Pasha Mosque</h4>
-                                    <p class="case-subtitle">International Diplomacy Through Architecture</p>
-                                </div>
+                    <div class="war-tourism-section">
+                        <h4>War Tourism: Memory as Commodity</h4>
+                        <div class="tourism-analysis">
+                            <div class="tourism-intro">
+                                <p><strong>This form of erasure is not only confined to Mostar.</strong> In Sarajevo, similar tensions emerge around the rise of war tourism. Museums and guided tours that focus on the years during the siege are increasingly marketed to international visitors, offering curated experiences of trauma and resilience.</p>
                             </div>
 
-                            <div class="mosque-analysis">
-                                <div class="mosque-overview">
-                                    <p><strong>A prime illustration is the Koski Mehmed Pasha Mosque</strong>, an Ottoman-era mosque that was severely damaged during the war. Its reconstruction, completed in 2001, was made possible thanks to funding from Turkey's Presidency for Turks Abroad and Related Communities (YTB) and additional support from Jordan.</p>
-                                </div>
-
-                                <div class="expandable-content">
-                                    <button class="expand-btn mosque-expand" onclick="toggleExpand(this)">
-                                        <span class="expand-text">Analyze the Diplomatic Dimensions</span>
-                                        <span class="expand-icon">▼</span>
-                                    </button>
-                                    <div class="expanded-text">
-                                        <div class="diplomatic-implications">
-                                            <p>The mosque's restoration signalled cultural resilience for the Bosniak community, yet also underlined how heritage itself becomes intertwined with diplomacy, as architectural memory is shaped by external alliances.</p>
+                            <div class="tourism-concerns">
+                                <div class="concern-card">
+                                    <div class="concern-header">
+                                        <span class="concern-icon">👥</span>
+                                        <h5>Commodified Suffering</h5>
+                                    </div>
+                                    <p>While these attractions can raise awareness and provide educational value, they also risk reducing lived suffering to spectacle.</p>
+                                    
+                                    <div class="expandable-content">
+                                        <button class="expand-btn tourism-expand" onclick="toggleExpand(this)">
+                                            <span class="expand-text">Explore the Concerns</span>
+                                            <span class="expand-icon">▼</span>
+                                        </button>
+                                        <div class="expanded-text">
+                                            <p>For instance, some tours focus on sniper alley, frontline ruins and former bunkers, packaged into experiences that can feel more like entertainment than reflection. The Tunnel Museum, while grounded in authentic history and preserving a vital ingress and egress to Sarajevo during the siege, also participates in this commodification, with its emotional impact shaped by curated displays of visitor expectations.</p>
                                             
                                             <div class="media-insertion-area">
                                                 <div class="media-placeholder photo-placeholder">
                                                     <div class="placeholder-content">
-                                                        <span class="placeholder-icon">🕌</span>
-                                                        <h4>Koski Mehmed Pasha Mosque</h4>
-                                                        <p>Koski Mehmed Pasha Mosque in Old Town, Sarajevo.</p>
+                                                        <span class="placeholder-icon">🚇</span>
+                                                        <h4>Tunnel Museum Reconstruction</h4>
+                                                        <p>Reconstructed tunnel in the Tunnel Museum, height of the tunnel increased from 1.6m to 1.8m.</p>
                                                         <button class="media-insert-btn">+ Insert Image</button>
                                                     </div>
                                                 </div>
                                             </div>
+                                            
+                                            <p>In these contexts, memory becomes performative, raising difficult questions about how much of the war experience is being shared and how much is being staged.</p>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                                        <div class="heritage-politics">
-                                            <div class="politics-insight">
-                                                <span class="insight-icon">🤝</span>
-                                                <p>Such selective restoration projects may create the appearance of shared remembrance, but also leaves some less visible contested histories largely ignored.</p>
+                            <div class="tourism-consequences">
+                                <div class="consequences-insight">
+                                    <div class="insight-highlight">
+                                        <span class="highlight-icon">💰</span>
+                                        <div class="highlight-content">
+                                            <h6>Economic vs. Authentic Memory</h6>
+                                            <p>Tourism, while economically beneficial, encourages selective memory. Sites that align with international curiosity are promoted, while more mundane or complex histories are sidelined.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="gentrification-impact">
+                                    <p>This, in turn, feeds into urban gentrification, as once-devastated neighbourhoods are refurbished for tourist consumption. In Sarajevo, this pressure displaces long-time residents whose lives are intertwined with the very memories being commodified.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="housing-reconstruction-section">
+                        <h4>Housing Reconstruction: Progress Through Erasure</h4>
+                        <div class="reconstruction-analysis">
+                            <div class="reconstruction-stats">
+                                <div class="stats-card">
+                                    <div class="stats-icon">🏠</div>
+                                    <div class="stats-content">
+                                        <h5>260,000+ Homes Rebuilt</h5>
+                                        <p>Since 1996</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="reconstruction-complexity">
+                                <p>Even large-scale housing reconstruction, while vital for recovery, has a complicated relationship with memory. The rehabilitation of over 260,000 homes since 1996 is a remarkable achievement.</p>
+                                
+                                <div class="complexity-analysis">
+                                    <div class="analysis-card modern-facades">
+                                        <div class="card-icon">🔄</div>
+                                        <h6>Modern Facades</h6>
+                                        <p>Yet in many cases, these homes have been rebuilt with modern facades that erase signs of wartime damage.</p>
+                                    </div>
+                                    
+                                    <div class="analysis-card memory-tension">
+                                        <div class="card-icon">⚖️</div>
+                                        <h6>Memory Tension</h6>
+                                        <p>While this can help residents move forward, it also removes subtle architectural witnesses such as patches, bullet scars, and cracks that once silently testified to what had been endured.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="selective-rebuilding-section">
+                        <h4>The Politics of Selective Rebuilding</h4>
+                        <div class="selective-analysis">
+                            <div class="politics-intro">
+                                <p>The politics of selective rebuilding are especially visible in areas marked by lingering ethnic tension, where the urban fabric becomes a memory map of competing identities.</p>
+                            </div>
+
+                            <div class="mostar-investment-patterns">
+                                <div class="pattern-description">
+                                    <p>In Mostar, investment remains patchy, while others are left neglected. This is especially true with religious and civic architecture that often reflects the identity of the area's dominant ethnic group.</p>
+                                </div>
+                            </div>
+
+                            <div class="mosque-case-study">
+                                <div class="case-study-header">
+                                    <div class="case-icon">🕌</div>
+                                    <div class="case-title">
+                                        <h4>Case Study: Koski Mehmed Pasha Mosque</h4>
+                                        <p class="case-subtitle">International Diplomacy Through Architecture</p>
+                                    </div>
+                                </div>
+
+                                <div class="mosque-analysis">
+                                    <div class="mosque-overview">
+                                        <p><strong>A prime illustration is the Koski Mehmed Pasha Mosque</strong>, an Ottoman-era mosque that was severely damaged during the war. Its reconstruction, completed in 2001, was made possible thanks to funding from Turkey's Presidency for Turks Abroad and Related Communities (YTB) and additional support from Jordan.</p>
+                                    </div>
+
+                                    <div class="expandable-content">
+                                        <button class="expand-btn mosque-expand" onclick="toggleExpand(this)">
+                                            <span class="expand-text">Analyze the Diplomatic Dimensions</span>
+                                            <span class="expand-icon">▼</span>
+                                        </button>
+                                        <div class="expanded-text">
+                                            <div class="diplomatic-implications">
+                                                <p>The mosque's restoration signalled cultural resilience for the Bosniak community, yet also underlined how heritage itself becomes intertwined with diplomacy, as architectural memory is shaped by external alliances.</p>
+                                                
+                                                <div class="media-insertion-area">
+                                                    <div class="media-placeholder photo-placeholder">
+                                                        <div class="placeholder-content">
+                                                            <span class="placeholder-icon">🕌</span>
+                                                            <h4>Koski Mehmed Pasha Mosque</h4>
+                                                            <p>Koski Mehmed Pasha Mosque in Old Town, Sarajevo.</p>
+                                                            <button class="media-insert-btn">+ Insert Image</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="heritage-politics">
+                                                <div class="politics-insight">
+                                                    <span class="insight-icon">🤝</span>
+                                                    <p>Such selective restoration projects may create the appearance of shared remembrance, but also leaves some less visible contested histories largely ignored.</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -1223,56 +1254,56 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="healing-erasure-section">
-                    <h4>When Erasure Becomes Healing</h4>
-                    <div class="healing-analysis">
-                        <div class="healing-perspective">
-                            <div class="perspective-card">
-                                <div class="perspective-header">
-                                    <span class="perspective-icon">💚</span>
-                                    <h5>Not Always Sinister</h5>
-                                </div>
-                                <p>At the same time, erasure is not always sinister. For many people, removal of war damage represents progress.</p>
-                            </div>
-                        </div>
-
-                        <div class="normalcy-reclamation">
-                            <p>Living under constant visual reminders of trauma is not easy, and for some, painting over bullet holes or rebuilding a flat is part of the process of reclaiming normalcy.</p>
-                            
-                            <div class="creative-solutions">
-                                <div class="solution-example">
-                                    <div class="example-header">
-                                        <span class="example-icon">🎨</span>
-                                        <h6>Creative Interventions</h6>
+                    <div class="healing-erasure-section">
+                        <h4>When Erasure Becomes Healing</h4>
+                        <div class="healing-analysis">
+                            <div class="healing-perspective">
+                                <div class="perspective-card">
+                                    <div class="perspective-header">
+                                        <span class="perspective-icon">💚</span>
+                                        <h5>Not Always Sinister</h5>
                                     </div>
-                                    <p>In Mostar, creative interventions like filling shell damage with decorative ceramic tiles show how communities can find ways to acknowledge the past without being trapped by it.</p>
+                                    <p>At the same time, erasure is not always sinister. For many people, removal of war damage represents progress.</p>
+                                </div>
+                            </div>
+
+                            <div class="normalcy-reclamation">
+                                <p>Living under constant visual reminders of trauma is not easy, and for some, painting over bullet holes or rebuilding a flat is part of the process of reclaiming normalcy.</p>
+                                
+                                <div class="creative-solutions">
+                                    <div class="solution-example">
+                                        <div class="example-header">
+                                            <span class="example-icon">🎨</span>
+                                            <h6>Creative Interventions</h6>
+                                        </div>
+                                        <p>In Mostar, creative interventions like filling shell damage with decorative ceramic tiles show how communities can find ways to acknowledge the past without being trapped by it.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="memory-navigation-conclusion">
-                    <div class="conclusion-analysis">
-                        <h4>Navigating Between Memory and Forgetting</h4>
-                        <div class="navigation-challenge">
-                            <p>The real challenge, then, is not to choose between remembering or forgetting, but to navigate the space in between.</p>
-                            
-                            <div class="nora-reflection">
-                                <div class="theory-application">
-                                    <div class="theory-highlight final-nora">
-                                        <span class="theory-icon">📚</span>
-                                        <div class="theory-content">
-                                            <p>As Pierre Nora writes, sites of memory arise when lived memory begins to fade, but how these sites are made, maintained, or erased is never neutral.</p>
+                    <div class="memory-navigation-conclusion">
+                        <div class="conclusion-analysis">
+                            <h4>Navigating Between Memory and Forgetting</h4>
+                            <div class="navigation-challenge">
+                                <p>The real challenge, then, is not to choose between remembering or forgetting, but to navigate the space in between.</p>
+                                
+                                <div class="nora-reflection">
+                                    <div class="theory-application">
+                                        <div class="theory-highlight final-nora">
+                                            <span class="theory-icon">📚</span>
+                                            <div class="theory-content">
+                                                <p>As Pierre Nora writes, sites of memory arise when lived memory begins to fade, but how these sites are made, maintained, or erased is never neutral.</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="ongoing-negotiation">
-                                <p>In Bosnia and Herzegovina, nearly thirty years after the war's end, memory remains active and contested. Nowhere is this more visible than in the architecture itself, where every wall, ruin, and restoration becomes part of the ongoing negotiation between the past and the future.</p>
+                                <div class="ongoing-negotiation">
+                                    <p>In Bosnia and Herzegovina, nearly thirty years after the war's end, memory remains active and contested. Nowhere is this more visible than in the architecture itself, where every wall, ruin, and restoration becomes part of the ongoing negotiation between the past and the future.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
