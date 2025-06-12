@@ -901,6 +901,7 @@ class JourneyApp {
     this.setupKeyboardNavigation();
     this.setupMapToggle();
     this.initializeHeroVideo();
+    this.initializeHeroImage();
     
     // Handle visibility changes to pause audio when tab is not active
     document.addEventListener("visibilitychange", () => {
@@ -990,6 +991,22 @@ class JourneyApp {
       }, { threshold: 0.1 });
 
       observer.observe(heroVideo);
+    }
+  }
+
+  private initializeHeroImage(): void {
+    const heroImage = document.getElementById('hero-image') as HTMLImageElement;
+    if (heroImage) {
+      // Add subtle animation or effects to the hero image if needed
+      heroImage.addEventListener('load', () => {
+        console.log('Hero image loaded successfully');
+        // Add any initialization effects here
+      });
+
+      // Handle any image loading errors
+      heroImage.addEventListener('error', () => {
+        console.error('Failed to load hero image');
+      });
     }
   }
 
